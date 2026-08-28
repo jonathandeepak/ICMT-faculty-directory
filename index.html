@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ICMT Faculty — Overview & Directory</title>
+<style>
+:root{
+  --navy:#0d3554;
+  --navy-dark:#08243a;
+  --blue:#126b9b;
+  --blue-hover:#0f577e;
+  --blue2:#eaf5fb;
+  --green:#21865b;
+  --bg:#f4f7fb;
+  --card-bg:#ffffff;
+  --line:#dfe6ee;
+  --text:#172033;
+  --muted:#667085;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+/* Header */
+.header{
+  background:var(--navy);
+  color:#fff;
+  padding:16px 24px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.brand{
+  display:flex;
+  flex-direction:column;
+}
+.brand-title{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-0.3px;
+  color:#fff;
+}
+.brand-sub{
+  font-size:11px;
+  color:#a9c4d6;
+  font-weight:400;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.nav-btn{
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  transition:all .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.nav-btn-primary{
+  background:var(--blue);
+  color:#fff;
+}
+.nav-btn-primary:hover{
+  background:var(--blue-hover);
+  transform:translateY(-1px);
+}
+.nav-btn-ghost{
+  background:rgba(255,255,255,0.1);
+  color:#e2edf5;
+}
+.nav-btn-ghost:hover{
+  background:rgba(255,255,255,0.2);
+  color:#fff;
+}
+
+/* Hero Section */
+.hero{
+  background:linear-gradient(135deg,#0d3554 0%,#126b9b 100%);
+  color:#fff;
+  padding:64px 24px 72px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.08) 0%,transparent 50%),
+             radial-gradient(circle at 80% 70%,rgba(18,107,155,0.25) 0%,transparent 50%);
+  pointer-events:none;
+}
+.hero-content{
+  max-width:860px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(255,255,255,0.15);
+  color:#e0f2fe;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,0.2);
+}
+.hero h1{
+  font-size:38px;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:18px;
+  letter-spacing:-0.5px;
+}
+.hero p{
+  font-size:16px;
+  color:#dbeaf4;
+  line-height:1.7;
+  margin-bottom:32px;
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:#fff;
+  color:var(--navy);
+  font-size:16px;
+  font-weight:700;
+  padding:14px 32px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:all .2s ease;
+}
+.hero-cta:hover{
+  background:#f0f7fc;
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,0.25);
+  color:var(--blue);
+}
+.hero-cta svg{
+  width:18px;
+  height:18px;
+  transition:transform .2s ease;
+}
+.hero-cta:hover svg{
+  transform:translateX(3px);
+}
+
+/* Stats Bar */
+.stats-bar{
+  max-width:1100px;
+  margin:-32px auto 48px;
+  padding:0 24px;
+  position:relative;
+  z-index:2;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  background:#fff;
+  border-radius:14px;
+  padding:24px 28px;
+  border:1px solid var(--line);
+  box-shadow:0 12px 30px rgba(13,53,84,0.08);
+}
+.stat-card{
+  text-align:center;
+}
+.stat-num{
+  font-size:30px;
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.1;
+  margin-bottom:4px;
+}
+.stat-label{
+  font-size:12px;
+  font-weight:600;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+}
+
+/* Introduction & Pillars */
+.section{
+  max-width:1100px;
+  margin:0 auto 56px;
+  padding:0 24px;
+}
+.section-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 36px;
+}
+.section-head h2{
+  font-size:26px;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:10px;
+}
+.section-head p{
+  font-size:14px;
+  color:var(--muted);
+}
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.info-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px 22px;
+  transition:all .18s ease;
+  display:flex;
+  flex-direction:column;
+}
+.info-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(13,53,84,0.07);
+  border-color:#b9d2e3;
+}
+.card-icon{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  background:var(--blue2);
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+.info-card h3{
+  font-size:17px;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:10px;
+}
+.info-card p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* Call to Action Banner */
+.banner{
+  max-width:1100px;
+  margin:0 auto 64px;
+  padding:0 24px;
+}
+.banner-inner{
+  background:var(--blue2);
+  border:1px solid #c2def0;
+  border-radius:14px;
+  padding:36px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+}
+.banner-text h3{
+  font-size:21px;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.banner-text p{
+  font-size:14px;
+  color:#35566b;
+}
+
+/* Footer */
+.footer{
+  background:#fff;
+  border-top:1px solid var(--line);
+  padding:24px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+.footer a{
+  color:var(--blue);
+  font-weight:600;
+}
+
+@media(max-width:850px){
+  .hero h1{font-size:28px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .cards-grid{grid-template-columns:1fr}
+  .banner-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:500px){
+  .stats-grid{grid-template-columns:1fr}
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .nav-links{width:100%;justify-content:space-between}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-title">ICMT Faculty Directory</span>
+      <span class="brand-sub">International Council for Management & Technology • Academic Portal</span>
+    </div>
+    <nav class="nav-links">
+      <a href="faculty.html" class="nav-btn nav-btn-ghost">Faculty Information</a>
+      <a href="public-directory.html" class="nav-btn nav-btn-primary">View Directory</a>
+      <a href="admin.html" class="nav-btn nav-btn-ghost">Admin Login</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Official Faculty Portal</span>
+      <h1>Empowering Scholarly Excellence & Academic Innovation</h1>
+      <p>
+        The International Conference on Management & Technology (ICMT) Faculty Directory connects distinguished professors, associate professors, deans, directors, and research scholars from leading colleges, universities, and institutions across the nation.
+      </p>
+      <a href="public-directory.html" class="hero-cta">
+        <span>View Faculty Directory</span>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">340+</div>
+        <div class="stat-label">Faculty Members</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">States & Regions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Leading Institutions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Expertise Domains</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>About ICMT Faculty Network</h2>
+      <p>A unified knowledge network facilitating academic collaboration, multidisciplinary research mentorship, and professional peer exchange.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="info-card">
+        <div class="card-icon">🎓</div>
+        <h3>Doctoral Research & Guideship</h3>
+        <p>Experienced mentors and supervisors providing doctoral guidance (Ph.D., M.Phil.) across commerce, business management, analytics, and applied sciences.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">🌐</div>
+        <h3>Multidisciplinary Expertise</h3>
+        <p>Faculty specializing in finance, strategic management, corporate governance, machine learning, organizational behavior, supply chain, and economics.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">🏛️</div>
+        <h3>Institutional Network</h3>
+        <p>Representing premier central universities, state universities, autonomous institutions, engineering & management colleges nationwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="banner-inner">
+      <div class="banner-text">
+        <h3>Explore the Complete Directory</h3>
+        <p>Search faculty members by name, institution, designation, state, or specialization area.</p>
+      </div>
+      <a href="public-directory.html" class="nav-btn nav-btn-primary" style="padding:12px 24px;font-size:15px;white-space:nowrap">
+        Browse Directory &rarr;
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <div>&copy; 2026 <b>ICMT</b> &mdash; International Council for Management & Technology. All rights reserved.</div>
+    <div>
+      <a href="faculty.html">Faculty Information</a> &bull;
+      <a href="public-directory.html">Faculty Directory</a> &bull;
+      <a href="admin.html">Administrator Login</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
