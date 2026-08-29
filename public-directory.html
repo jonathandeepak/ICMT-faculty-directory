@@ -736,9 +736,6 @@ function normalizeNameForAZ(value){
 }
 
 function loadFacultyData(){
-  if(window.ICMT_MASTER_DATA && Array.isArray(window.ICMT_MASTER_DATA) && window.ICMT_MASTER_DATA.length > 0){
-    return window.ICMT_MASTER_DATA;
-  }
   try {
     const raw = localStorage.getItem("icmtFacultyDirectoryMembers_v4");
     if(raw){
@@ -748,6 +745,9 @@ function loadFacultyData(){
       }
     }
   } catch(e){}
+  if(window.ICMT_MASTER_DATA && Array.isArray(window.ICMT_MASTER_DATA) && window.ICMT_MASTER_DATA.length > 0){
+    return window.ICMT_MASTER_DATA;
+  }
   return [];
 }
 
@@ -1036,6 +1036,18 @@ if(document.readyState === "loading"){
 } else {
   initPublicDirectory();
 }
+
+window.addEventListener("focus", function(){
+  allMembers = loadFacultyData();
+  renderFacultyDirectory();
+});
+
+window.addEventListener("storage", function(e){
+  if(e.key === "icmtFacultyDirectoryMembers_v4"){
+    allMembers = loadFacultyData();
+    renderFacultyDirectory();
+  }
+});
 </script>
 </body>
 </html>

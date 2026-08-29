@@ -301,11 +301,24 @@ function initials(name){
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
+function getFacultyList(){
+  try {
+    const raw = localStorage.getItem("icmtFacultyDirectoryMembers_v4");
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(Array.isArray(parsed) && parsed.length > 0){
+        return parsed;
+      }
+    }
+  } catch(e){}
+  return window.ICMT_MASTER_DATA || [];
+}
+
 function loadMemberProfile(){
   const params = new URLSearchParams(window.location.search);
   const targetId = (params.get("id") || "").trim().toUpperCase();
 
-  const list = window.ICMT_MASTER_DATA || [];
+  const list = getFacultyList();
   let member = list.find(m => String(m.id || "").trim().toUpperCase() === targetId);
 
   if(!member && list.length){
@@ -398,7 +411,19 @@ function loadMemberProfile(){
   `;
 }
 
-document.addEventListener("DOMContentLoaded", loadMemberProfile);
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", loadMemberProfile);
+} else {
+  loadMemberProfile();
+}
+
+window.addEventListener("focus", loadMemberProfile);
+
+window.addEventListener("storage", function(e){
+  if(e.key === "icmtFacultyDirectoryMembers_v4"){
+    loadMemberProfile();
+  }
+});
 </script>
 </body>
 </html>
