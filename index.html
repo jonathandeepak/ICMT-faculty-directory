@@ -3,497 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ICMT — Indian Commerce and Management Teachers | Faculty Portal</title>
+<title>ICMT — Indian Commerce and Management Teachers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#1e6c93;
-  --navy-dark:#004d66;
-  --blue:#1e6c93;
-  --blue-hover:#005a7d;
-  --blue2:#eaf5fb;
-  --green:#21865b;
-  --bg:#f8fafc;
-  --card-bg:#ffffff;
-  --line:#dfe6ee;
-  --text:#212121;
-  --muted:#667085;
-  --white:#ffffff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
+<link rel="stylesheet" href="css/style.css">
 
-/* Header & Navigation */
-.header{
-  background:var(--navy);
-  color:#fff;
-  padding:12px 24px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 2px 8px rgba(0,0,0,0.12);
-}
-.header-inner{
-  max-width:1280px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:#fff;
-}
-.brand-logo{
-  height:44px;
-  width:44px;
-  aspect-ratio:1/1;
-  object-fit:contain;
-  border-radius:50%;
-  background:#ffffff;
-  padding:2px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  flex-shrink:0;
-}
-.brand-text{
-  display:flex;
-  flex-direction:column;
-}
-.brand-title{
-  font-size:22px;
-  font-weight:700;
-  letter-spacing:0.5px;
-  line-height:1.2;
-}
-.brand-sub{
-  font-size:11px;
-  color:#d5eaf5;
-  font-weight:300;
-}
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:4px;
-  flex-wrap:wrap;
-}
-.nav-item{
-  padding:8px 12px;
-  border-radius:6px;
-  font-size:13px;
-  font-weight:400;
-  color:#ffffff;
-  text-decoration:none;
-  transition:all .15s ease;
-  white-space:nowrap;
-}
-.nav-item:hover{
-  background:rgba(255,255,255,0.15);
-  color:#ffffff;
-}
-.nav-dropdown{
-  position:relative;
-  display:inline-block;
-}
-.nav-dropdown-menu{
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  background:#ffffff;
-  min-width:190px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.15);
-  border-radius:8px;
-  padding:6px 0;
-  z-index:110;
-  border:1px solid #dfe6ee;
-}
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu{
-  display:block;
-}
-.dropdown-item{
-  display:block;
-  padding:8px 16px;
-  font-size:13px;
-  color:#212121;
-  text-decoration:none;
-  transition:background .15s ease;
-}
-.dropdown-item:hover{
-  background:#eaf5fb;
-  color:#1e6c93;
-}
-.nav-dropdown.active > .nav-item,
-.nav-item.active{
-  background:rgba(0,0,0,0.2);
-  font-weight:700;
-  color:#ffffff;
-}
-.nav-btn-admin{
-  background:#ffffff;
-  color:var(--navy);
-  padding:7px 15px;
-  border-radius:6px;
-  font-size:13px;
-  font-weight:700;
-  text-decoration:none;
-  margin-left:6px;
-  transition:all .15s ease;
-}
-.nav-btn-admin:hover{
-  background:#eaf5fb;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Site Welcome Banner */
-.site-welcome-banner{
-  background:rgba(30,108,147,0.08);
-  border-bottom:1px solid rgba(30,108,147,0.15);
-  padding:10px 24px;
-  text-align:center;
-  font-size:13px;
-  color:#004d66;
-  font-weight:600;
-}
-.site-welcome-banner b{
-  color:var(--navy);
-}
-
-/* Hero Section */
-.hero{
-  background:linear-gradient(135deg,#1e6c93 0%,#004d66 100%);
-  color:#fff;
-  padding:56px 24px 64px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.08) 0%,transparent 50%),
-             radial-gradient(circle at 80% 70%,rgba(73,170,212,0.2) 0%,transparent 50%);
-  pointer-events:none;
-}
-.hero-content{
-  max-width:880px;
-  margin:0 auto;
-  position:relative;
-  z-index:1;
-}
-.hero-badge{
-  display:inline-block;
-  background:rgba(255,255,255,0.18);
-  color:#eaf5fb;
-  padding:6px 16px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:0.5px;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,0.25);
-}
-.hero h1{
-  font-size:36px;
-  font-weight:700;
-  line-height:1.25;
-  margin-bottom:16px;
-  letter-spacing:-0.4px;
-}
-.hero p{
-  font-size:16px;
-  color:#dbeaf4;
-  line-height:1.7;
-  margin-bottom:28px;
-  font-weight:300;
-}
-.hero-actions{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.hero-cta-primary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:#fff;
-  color:var(--navy);
-  font-size:15px;
-  font-weight:700;
-  padding:12px 28px;
-  border-radius:8px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  transition:all .2s ease;
-}
-.hero-cta-primary:hover{
-  background:#f0f7fc;
-  transform:translateY(-2px);
-  box-shadow:0 12px 25px rgba(0,0,0,0.2);
-  color:var(--navy-dark);
-}
-.hero-cta-secondary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:rgba(255,255,255,0.15);
-  color:#ffffff;
-  border:1px solid rgba(255,255,255,0.3);
-  font-size:15px;
-  font-weight:700;
-  padding:12px 26px;
-  border-radius:8px;
-  transition:all .2s ease;
-}
-.hero-cta-secondary:hover{
-  background:rgba(255,255,255,0.25);
-  transform:translateY(-2px);
-  color:#ffffff;
-}
-
-/* Stats Bar */
-.stats-bar{
-  max-width:1100px;
-  margin:-30px auto 44px;
-  padding:0 24px;
-  position:relative;
-  z-index:2;
-}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  background:#fff;
-  border-radius:12px;
-  padding:22px 26px;
-  border:1px solid var(--line);
-  box-shadow:0 10px 25px rgba(30,108,147,0.08);
-}
-.stat-card{
-  text-align:center;
-}
-.stat-num{
-  font-size:28px;
-  font-weight:700;
-  color:var(--navy);
-  line-height:1.1;
-  margin-bottom:4px;
-}
-.stat-label{
-  font-size:12px;
-  font-weight:600;
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:0.3px;
-}
-
-/* Introduction & Pillars */
-.section{
-  max-width:1100px;
-  margin:0 auto 52px;
-  padding:0 24px;
-}
-.section-head{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 34px;
-}
-.section-head h2{
-  font-size:26px;
-  font-weight:700;
-  color:var(--navy);
-  margin-bottom:8px;
-}
-.section-head p{
-  font-size:14px;
-  color:var(--muted);
-}
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.info-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:24px 20px;
-  transition:all .18s ease;
-  display:flex;
-  flex-direction:column;
-}
-.info-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 22px rgba(30,108,147,0.08);
-  border-color:#b9d2e3;
-}
-.card-icon{
-  font-size:28px;
-  margin-bottom:12px;
-}
-.info-card h3{
-  font-size:17px;
-  font-weight:700;
-  color:var(--navy);
-  margin-bottom:8px;
-}
-.info-card p{
-  font-size:13px;
-  color:#4a5568;
-  line-height:1.6;
-}
-
-/* Founders / Mentors Bar */
-.founders-card{
-  background:#ffffff;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:28px;
-  margin-top:20px;
-  box-shadow:0 4px 14px rgba(30,108,147,0.04);
-}
-.founders-card h3{
-  font-size:18px;
-  font-weight:700;
-  color:var(--navy);
-  margin-bottom:14px;
-  text-align:center;
-}
-.founders-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.founder-box{
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:8px;
-  padding:12px 14px;
-  font-size:12px;
-}
-.founder-box b{
-  display:block;
-  color:#1e6c93;
-  font-size:13px;
-  margin-bottom:2px;
-}
-.founder-box span{
-  color:#64748b;
-  line-height:1.4;
-  display:block;
-}
-
-/* Banner */
-.banner{
-  background:linear-gradient(135deg,#004d66 0%,#1e6c93 100%);
-  color:#fff;
-  padding:40px 24px;
-  margin:20px 0 0;
-}
-.banner-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-  flex-wrap:wrap;
-}
-.banner-text h3{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:6px;
-}
-.banner-text p{
-  font-size:14px;
-  color:#d5eaf5;
-}
-
-/* Footer */
-.footer{
-  background:#ffffff;
-  border-top:1px solid var(--line);
-  padding:32px 24px 24px;
-  font-size:13px;
-  color:var(--muted);
-}
-.footer-inner{
-  max-width:1280px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  flex-wrap:wrap;
-  gap:24px;
-}
-.footer-brand b{
-  font-size:14px;
-  color:#212121;
-  display:block;
-  margin-bottom:4px;
-}
-.footer-brand p{
-  font-size:12px;
-  color:#667085;
-  max-width:480px;
-}
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  font-size:13px;
-}
-.footer-links a{
-  color:#1e6c93;
-  transition:color .15s ease;
-}
-.footer-links a:hover{
-  text-decoration:underline;
-  color:#004d66;
-}
-.footer-bottom{
-  max-width:1280px;
-  margin:20px auto 0;
-  padding-top:16px;
-  border-top:1px solid #edf2f7;
-  text-align:center;
-  font-size:12px;
-  color:#94a3b8;
-}
-
-@media(max-width:980px){
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .cards-grid{grid-template-columns:1fr}
-  .founders-grid{grid-template-columns:1fr}
-}
-@media(max-width:640px){
-  .header-inner{flex-direction:column;align-items:flex-start}
-  .nav-links{width:100%;margin-top:8px}
-  .stats-grid{grid-template-columns:1fr}
-  .hero h1{font-size:26px}
-}
-</style>
 </head>
 <body>
+
+<div class="site-welcome-banner">
+  Welcome to the <b>Indian Commerce and Management Teachers (ICMT)</b> — a non-profit professional platform built by academicians, for academicians.
+</div>
 
 <header class="header">
   <div class="header-inner">
@@ -506,158 +27,151 @@ a{text-decoration:none;color:inherit}
     </a>
     <nav class="nav-links">
       <a href="index.html" class="nav-item active">Home</a>
-      <a href="about-us.html" class="nav-item">About Us</a>
-      <a href="initiatives.html" class="nav-item">Our Initiatives</a>
-      <a href="events.html" class="nav-item">Events</a>
-      <div class="nav-dropdown">
+      <a href="about-us.html" class="nav-item ">About Us</a>
+      <a href="initiatives.html" class="nav-item ">Our Initiatives</a>
+      <a href="events.html" class="nav-item ">Events</a>
+      <a href="members.html" class="nav-item ">Members</a>
+      <div class="nav-dropdown ">
         <a href="faculty.html" class="nav-item nav-dropdown-toggle">Faculty ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="faculty.html" class="dropdown-item">Faculty Information</a>
-          <a href="public-directory.html" class="dropdown-item">Faculty Directory</a>
+          <a href="faculty.html" class="dropdown-item ">Faculty Information</a>
+          <a href="public-directory.html" class="dropdown-item ">Faculty Directory</a>
         </div>
       </div>
-      <a href="resources.html" class="nav-item">ICMT Resources</a>
-      <a href="contact.html" class="nav-item">Contact Us</a>
+      <a href="resources.html" class="nav-item ">ICMT Resources</a>
+      <a href="contact.html" class="nav-item ">Contact Us</a>
       <a href="admin.html" class="nav-btn-admin">Admin Login</a>
     </nav>
   </div>
 </header>
 
-<div class="site-welcome-banner">
-  Welcome to the <b>Indian Commerce and Management Teachers (ICMT)</b> — a non-profit professional platform built by academicians, for academicians.
+<section class="site-hero">
+  <div class="site-hero-inner">
+    <span class="hero-badge">Academic Faculty & Research Network</span>
+    <h1>Advancing Excellence in Commerce & Management Education</h1>
+    <p>
+      A premier non-profit professional platform connecting distinguished professors, researchers, and doctoral supervisors from leading colleges and universities across India.
+    </p>
+    <div class="hero-actions">
+      <a href="faculty.html" class="hero-cta-secondary">
+        <span>Faculty Information</span>
+        <svg style="width:16px;height:16px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      </a>
+      <a href="public-directory.html" class="hero-cta-primary">
+        <span>Explore Faculty Directory</span>
+        <svg style="width:16px;height:16px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+    </div>
+  </div>
+  
+<div class="hero-wave">
+  <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+    <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#f8fafc"></path>
+  </svg>
 </div>
 
-<main>
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-badge">Academic Faculty Portal</span>
-      <h1>Empowering Scholarly Excellence & Academic Innovation</h1>
-      <p>
-        The ICMT Faculty Directory connects distinguished professors, associate professors, deans, directors, and doctoral research supervisors from premier colleges, universities, and institutions nationwide.
-      </p>
-      <div class="hero-actions">
-        <a href="faculty.html" class="hero-cta-secondary">
-          <span>Faculty Information</span>
-          <svg style="width:16px;height:16px;vertical-align:middle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </a>
-        <a href="public-directory.html" class="hero-cta-primary">
-          <span>Explore Faculty Directory</span>
-          <svg style="width:16px;height:16px;vertical-align:middle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-        </a>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <div class="stats-bar">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-num">340+</div>
-        <div class="stat-label">Faculty Members</div>
+<main class="container">
+  <div class="section-block">
+    <h2>🏛️ ICMT Founders & Mentors</h2>
+    <p>
+      Founded by senior academic administrators, former Vice Chancellors, and eminent researchers to build a collaborative bridge for scholarship, research mentoring, and educational innovation.
+    </p>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <b>Prof. V. Bala Mohandas</b>
+        <span>Former Vice Chancellor, Acharya Nagarjuna University, Andhra Pradesh.</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">25+</div>
-        <div class="stat-label">States & Regions</div>
+      <div class="founder-card">
+        <b>Prof. Ch. Ramaprasada Rao</b>
+        <span>Retd. Professor, Sri Krishnadevaraya University, Andhra Pradesh.</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Leading Institutions</div>
+      <div class="founder-card">
+        <b>Prof. K. Venugopal Rao</b>
+        <span>Former Vice Chancellor, Himalayan University.</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Expertise Domains</div>
+      <div class="founder-card">
+        <b>Prof. NVR Jyoti Kumar</b>
+        <span>Vice Chancellor, Sri Krishnadevaraya University, Andhra Pradesh.</span>
+      </div>
+      <div class="founder-card">
+        <b>Dr. Inguava Gopinath</b>
+        <span>Former Senior Scientist ISRO, Sriharikota.</span>
+      </div>
+      <div class="founder-card">
+        <b>Prof. V Barla</b>
+        <span>Advisor IIC, CBIT, Hyderabad.</span>
+      </div>
+      <div class="founder-card">
+        <b>Prof. Satyanarayana Parayitam</b>
+        <span>Charlton College of Business, University of Massachusetts Dartmouth.</span>
+      </div>
+      <div class="founder-card">
+        <b>Prof. Himachalam Dasaraju</b>
+        <span>Rtd. Professor, Sri Venkateshwara University, Tirupathi & Founder member of "Global Association for MSMEs and SDGs Research in Developing Countries".</span>
+      </div>
+      <div class="founder-card">
+        <b>Sri Anand Musunur</b>
+        <span>Tata Consultancy Services, USA.</span>
       </div>
     </div>
   </div>
 
-  <section class="section">
-    <div class="section-head">
-      <h2>About ICMT Faculty Network</h2>
-      <p>A unified academic repository facilitating knowledge exchange, doctoral guidance, research mentorship, and professional peer networking across India and abroad.</p>
-    </div>
-
-    <div class="cards-grid">
-      <div class="info-card">
-        <div class="card-icon">🎓</div>
-        <h3>Doctoral Research & Guideship</h3>
-        <p>Experienced supervisors providing Ph.D. and M.Phil. research mentorship across commerce, business management, finance, data analytics, and behavioral sciences.</p>
+  <div class="section-block">
+    <h2>🌟 Key Initiatives & Academic Pillars</h2>
+    <div class="grid-3" style="margin-top:20px">
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>ICMT Faculty Directory</h3>
+        <p>Comprehensive catalog of 340+ verified academic professionals across commerce and management higher education.</p>
       </div>
-
-      <div class="info-card">
-        <div class="card-icon">🌐</div>
-        <h3>Multidisciplinary Expertise</h3>
-        <p>Faculty specializing in banking, corporate governance, strategic management, artificial intelligence in commerce, marketing, supply chain, and microeconomics.</p>
+      <div class="feature-card">
+        <div class="icon">💼</div>
+        <h3>ICMT Careers</h3>
+        <p>Academic career ecosystem connecting qualified educators and doctoral scholars with premier institutions.</p>
       </div>
-
-      <div class="info-card">
-        <div class="card-icon">🏛️</div>
-        <h3>Institutional Reach</h3>
-        <p>Representing premier central universities, state universities, autonomous colleges, management institutes, and international partner faculties.</p>
+      <div class="feature-card">
+        <div class="icon">🎙️</div>
+        <h3>GPSN Communication Forum</h3>
+        <p>Global peer community empowering academicians through effective communication and public speaking.</p>
       </div>
-    </div>
-
-    <div class="founders-card">
-      <h3>ICMT Distinguished Academic Founders & Mentors</h3>
-      <div class="founders-grid">
-        <div class="founder-box">
-          <b>Prof. V. Bala Mohandas</b>
-          <span>Former VC, Acharya Nagarjuna University, Andhra Pradesh</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. Ch. Ramaprasada Rao</b>
-          <span>Retd. Professor, Sri Krishnadevaraya University, Andhra Pradesh</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. K. Venugopal Rao</b>
-          <span>Former VC, Himalayan University</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. NVR Jyoti Kumar</b>
-          <span>VC, Sri Krishnadevaraya University, Andhra Pradesh</span>
-        </div>
-        <div class="founder-box">
-          <b>Dr. Inguava Gopinath</b>
-          <span>Former Senior Scientist ISRO, Sriharikota</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. V Barla</b>
-          <span>Advisor IIC, CBIT, Hyderabad</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. Satyanarayana Parayitam</b>
-          <span>Charlton College of Business, UMass Dartmouth</span>
-        </div>
-        <div class="founder-box">
-          <b>Prof. Himachalam Dasaraju</b>
-          <span>Rtd. Professor, Sri Venkateshwara University, Tirupathi</span>
-        </div>
-        <div class="founder-box">
-          <b>Sri Anand Musunur</b>
-          <span>Tata Consultancy Services, USA</span>
-        </div>
+      <div class="feature-card">
+        <div class="icon">📊</div>
+        <h3>Policy Pulse</h3>
+        <p>Asynchronous knowledge-sharing distilling complex higher education regulatory updates into actionable insights.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎓</div>
+        <h3>Doctoral Supervision</h3>
+        <p>Recognized research supervisors guiding Ph.D. and M.Phil. scholars across multidisciplinary business domains.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🌐</div>
+        <h3>National Conferences</h3>
+        <p>Annual research conclaves, masterclasses, and international publishing workshops for educators.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="banner">
-    <div class="banner-inner">
-      <div class="banner-text">
-        <h3>Ready to Explore Faculty Profiles?</h3>
-        <p>Search faculty by name, qualification, institution, designation, state, or specialization area.</p>
-      </div>
-      <a href="public-directory.html" class="hero-cta-primary" style="white-space:nowrap">
-        Browse Directory &rarr;
-      </a>
+  <div class="banner-cta">
+    <div class="banner-cta-text">
+      <h3>Ready to Explore Faculty Profiles?</h3>
+      <p>Search faculty members by qualification, institution, designation, state, or specialization area.</p>
     </div>
-  </section>
+    <a href="public-directory.html" class="btn-cta">
+      <span>Open Faculty Directory &rarr;</span>
+    </a>
+  </div>
 </main>
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand" style="display:flex;align-items:center;gap:14px">
-      <img src="assets/images/icmt-logo.png" alt="ICMT Logo" style="height:52px;width:52px;aspect-ratio:1/1;object-fit:contain;border-radius:50%;background:#ffffff;padding:2px;border:1px solid #dfe6ee;flex-shrink:0">
+    <div class="footer-brand">
+      <img src="assets/images/icmt-logo.png" alt="ICMT Logo" class="footer-logo">
       <div>
-        <b style="font-size:14px;color:#212121;display:block;margin-bottom:4px">Indian Commerce and Management Teachers (ICMT)</b>
-        <p style="font-size:12px;color:#667085;max-width:480px;margin:0">A non-profit professional platform built by academicians, for academicians.</p>
+        <b>Indian Commerce and Management Teachers (ICMT)</b>
+        <p>A non-profit professional platform built by academicians, for academicians.</p>
       </div>
     </div>
     <div class="footer-links">
@@ -665,6 +179,7 @@ a{text-decoration:none;color:inherit}
       <a href="about-us.html">About Us</a> &bull;
       <a href="initiatives.html">Our Initiatives</a> &bull;
       <a href="events.html">Events</a> &bull;
+      <a href="members.html">Members</a> &bull;
       <a href="faculty.html">Faculty Information</a> &bull;
       <a href="public-directory.html">Faculty Directory</a> &bull;
       <a href="resources.html">ICMT Resources</a> &bull;
@@ -676,6 +191,5 @@ a{text-decoration:none;color:inherit}
     &copy; 2026 Indian Commerce and Management Teachers (ICMT). All rights reserved.
   </div>
 </footer>
-
 </body>
 </html>
