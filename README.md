@@ -1,23 +1,28 @@
-# ICMT Faculty Directory & Academic Portal
+# ICMT — Indian Commerce and Management Teachers
 
-Official centralized faculty directory and academic information portal for the **Indian Commerce and Management Teachers (ICMT)** — built as a seamless extension of the main ICMT platform ([https://sites.google.com/view/icmtmembers/home](https://sites.google.com/view/icmtmembers/home)).
+Official website and centralized academic faculty directory for the **Indian Commerce and Management Teachers (ICMT)** platform.
 
 ## Project Structure
 
 ```text
 ICMT_FACULTY_DIRECTORY/
-├── index.html              # Public Faculty Overview & Portal Entry
+├── index.html              # Main ICMT Website Homepage
+├── about-us.html           # About ICMT, Vision, Mission & Leadership
+├── initiatives.html        # Our Key Academic & Research Initiatives
+├── events.html             # National Conferences, Seminars & Workshops
+├── resources.html          # Academic Guidelines, Teaching Repositories & Tools
+├── contact.html            # Secretariat Contact Information & Inquiry Form
 ├── faculty.html            # Public Faculty Information & Mentors Page
 ├── public-directory.html   # Public Faculty Directory (Search, Filter, Grid/Table & Modal)
 ├── member-profile.html     # Dedicated Standalone Public Member Profile (?id=ICMTxxx)
-├── admin.html              # Admin Workspace (Login, Dashboard, Member Management, Users, Logout)
+├── admin.html              # Administrator Portal (Login, Dashboard, Member Management, Users, Logout)
 ├── README.md               # Documentation & Navigation Architecture
 │
 ├── css/
-│   └── style.css           # Core Application Stylesheet (Lato font & ICMT teal theme)
+│   └── style.css           # Central Stylesheet (Lato typography, ICMT theme tokens & UI layout)
 │
 ├── js/
-│   ├── app.js              # Admin Application Logic
+│   ├── app.js              # Admin Management & Dashboard Logic
 │   └── member-data.js      # Single Source of Truth (All 343 records + embedded portraits)
 │
 └── images/
@@ -27,11 +32,15 @@ ICMT_FACULTY_DIRECTORY/
 ## Navigation Flows
 
 1. **Public Flow**:
-   ICMT Main Website &rarr; **Faculty** &rarr; **Faculty Information** (`faculty.html`) &rarr; **Faculty Directory** (`public-directory.html`) &rarr; **Member Profile** (`member-profile.html`)
+   **Home** (`index.html`) &rarr; **Faculty** &rarr; **Faculty Information** (`faculty.html`) &rarr; **Faculty Directory** (`public-directory.html`) &rarr; **Member Profile** (`member-profile.html`)
 
 2. **Admin Flow**:
    **Admin Login** &rarr; **Dashboard** &rarr; **Member Management** &rarr; **User Management** &rarr; **Logout** (`admin.html`)
 
-## GitHub Pages Deployment
+## Key Features & Design System
 
-This repository is structured so that `index.html` is the root public entry page with relative paths. It is immediately ready for GitHub Pages hosting (Settings &rarr; Pages &rarr; Source: `main` branch / root).
+- **Design Reference**: Inspired by the structure and branding of ICMT (`https://sites.google.com/view/icmtmembers/home`), built as a 100% native frontend implementation.
+- **Typography & Theme**: Google Font `Lato` (300, 400, 700) with deep teal (`#1e6c93`), dark navy (`#004d66`), and light accent (`#eaf5fb`).
+- **Data Integrity**: Preserves all 343 verified member records and embedded portraits without modification.
+- **Live Sync**: Edits made in the Admin Member Management workspace automatically sync to public directory pages in real time via reactive `localStorage`.
+- **GitHub Pages Ready**: Structured with root relative links for immediate zero-config deployment.

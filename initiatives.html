@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Faculty Information — ICMT Indian Commerce and Management Teachers</title>
+<title>Our Initiatives — ICMT Indian Commerce and Management Teachers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -28,6 +28,9 @@ body{
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 a{text-decoration:none;color:inherit}
 
@@ -86,6 +89,11 @@ a{text-decoration:none;color:inherit}
   background:rgba(255,255,255,0.15);
   color:#ffffff;
 }
+.nav-item.active{
+  background:rgba(0,0,0,0.2);
+  font-weight:700;
+  color:#ffffff;
+}
 .nav-dropdown{
   position:relative;
   display:inline-block;
@@ -119,8 +127,12 @@ a{text-decoration:none;color:inherit}
   background:#eaf5fb;
   color:#1e6c93;
 }
-.nav-dropdown.active > .nav-item,
-.nav-item.active{
+.dropdown-item.active{
+  font-weight:700;
+  color:#1e6c93;
+  background:#eaf5fb;
+}
+.nav-dropdown.active > .nav-item{
   background:rgba(0,0,0,0.2);
   font-weight:700;
   color:#ffffff;
@@ -141,7 +153,7 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Breadcrumb & Welcome */
+/* Breadcrumbs */
 .breadcrumb-bar{
   background:#ffffff;
   border-bottom:1px solid var(--line);
@@ -163,7 +175,7 @@ a{text-decoration:none;color:inherit}
   text-decoration:underline;
 }
 
-/* Page Header */
+/* Page Hero */
 .page-hero{
   background:linear-gradient(135deg,#1e6c93 0%,#004d66 100%);
   color:#fff;
@@ -187,11 +199,12 @@ a{text-decoration:none;color:inherit}
   font-weight:300;
 }
 
-/* Main Content Container */
+/* Container & Blocks */
 .container{
   max-width:1100px;
   margin:40px auto 60px;
   padding:0 24px;
+  width:100%;
 }
 .section-block{
   background:#ffffff;
@@ -206,9 +219,6 @@ a{text-decoration:none;color:inherit}
   font-weight:700;
   color:var(--navy);
   margin-bottom:16px;
-  display:flex;
-  align-items:center;
-  gap:10px;
 }
 .section-block p{
   color:#4a5568;
@@ -217,69 +227,47 @@ a{text-decoration:none;color:inherit}
   margin-bottom:16px;
 }
 
-/* Founders Grid */
-.founders-grid{
+/* Grid Layouts */
+.grid-2{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:20px;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
-.founder-card{
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:10px;
-  padding:16px 18px;
-  transition:all .15s ease;
-}
-.founder-card:hover{
-  border-color:#b9d2e3;
-  transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(30,108,147,0.06);
-}
-.founder-card b{
-  display:block;
-  color:#1e6c93;
-  font-size:14px;
-  margin-bottom:4px;
-}
-.founder-card span{
-  color:#64748b;
-  font-size:12px;
-  line-height:1.45;
-  display:block;
-}
-
-/* Feature 3-grid */
-.pillars-grid{
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
-  margin-top:20px;
 }
-.pillar-card{
+.feature-card{
   background:#f8fafc;
   border:1px solid #e2e8f0;
   border-radius:10px;
   padding:20px;
+  transition:all .18s ease;
 }
-.pillar-card .icon{
+.feature-card:hover{
+  border-color:#b9d2e3;
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(30,108,147,0.06);
+}
+.feature-card .icon{
   font-size:24px;
   margin-bottom:10px;
 }
-.pillar-card h3{
+.feature-card h3{
   font-size:16px;
   font-weight:700;
   color:var(--navy);
   margin-bottom:8px;
 }
-.pillar-card p{
+.feature-card p{
   font-size:13px;
   color:#64748b;
   margin:0;
   line-height:1.55;
 }
 
-/* Banner CTA */
+/* Call to Action Banner */
 .banner-cta{
   background:linear-gradient(135deg,#004d66 0%,#1e6c93 100%);
   color:#fff;
@@ -328,6 +316,7 @@ a{text-decoration:none;color:inherit}
   padding:32px 24px 24px;
   font-size:13px;
   color:var(--muted);
+  margin-top:auto;
 }
 .footer-inner{
   max-width:1280px;
@@ -348,6 +337,7 @@ a{text-decoration:none;color:inherit}
   font-size:12px;
   color:#667085;
   max-width:480px;
+  margin:0;
 }
 .footer-links{
   display:flex;
@@ -375,16 +365,16 @@ a{text-decoration:none;color:inherit}
 }
 
 @media(max-width:980px){
-  .founders-grid{grid-template-columns:repeat(2,1fr)}
-  .pillars-grid{grid-template-columns:1fr}
+  .grid-2,.grid-3{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .header-inner{flex-direction:column;align-items:flex-start}
   .nav-links{width:100%;margin-top:8px}
-  .founders-grid{grid-template-columns:1fr}
   .page-hero h1{font-size:24px}
   .banner-cta{flex-direction:column;text-align:center}
 }
+
+
 </style>
 </head>
 <body>
@@ -396,19 +386,19 @@ a{text-decoration:none;color:inherit}
       <span class="brand-sub">Indian Commerce and Management Teachers</span>
     </a>
     <nav class="nav-links">
-      <a href="index.html" class="nav-item">Home</a>
-      <a href="about-us.html" class="nav-item">About Us</a>
-      <a href="initiatives.html" class="nav-item">Our Initiatives</a>
-      <a href="events.html" class="nav-item">Events</a>
-      <div class="nav-dropdown active">
+      <a href="index.html" class="nav-item ">Home</a>
+      <a href="about-us.html" class="nav-item ">About Us</a>
+      <a href="initiatives.html" class="nav-item active">Our Initiatives</a>
+      <a href="events.html" class="nav-item ">Events</a>
+      <div class="nav-dropdown ">
         <a href="faculty.html" class="nav-item nav-dropdown-toggle">Faculty ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="faculty.html" class="dropdown-item" style="font-weight:700;color:#1e6c93">Faculty Information</a>
-          <a href="public-directory.html" class="dropdown-item">Faculty Directory</a>
+          <a href="faculty.html" class="dropdown-item ">Faculty Information</a>
+          <a href="public-directory.html" class="dropdown-item ">Faculty Directory</a>
         </div>
       </div>
-      <a href="resources.html" class="nav-item">ICMT Resources</a>
-      <a href="contact.html" class="nav-item">Contact Us</a>
+      <a href="resources.html" class="nav-item ">ICMT Resources</a>
+      <a href="contact.html" class="nav-item ">Contact Us</a>
       <a href="admin.html" class="nav-btn-admin">Admin Login</a>
     </nav>
   </div>
@@ -418,99 +408,61 @@ a{text-decoration:none;color:inherit}
   <div class="breadcrumb-inner">
     <a href="index.html">Home</a>
     <span>&rsaquo;</span>
-    <a href="index.html">Faculty</a>
-    <span>&rsaquo;</span>
-    <span style="color:#212121;font-weight:700">Faculty Information</span>
+    <span style="color:#212121;font-weight:700">Our Initiatives</span>
   </div>
 </div>
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <h1>Faculty Information & Academic Network</h1>
-    <p>
-      Connecting distinguished educators, academic leaders, doctoral guides, and scholars in Commerce, Management, Information Technology, and Social Sciences.
-    </p>
+    <h1>Our Key Initiatives</h1>
+    <p>Empowering educators and scholars through specialized programs, research symposiums, and national academic collaborations.</p>
   </div>
 </section>
 
 <main class="container">
   <div class="section-block">
-    <h2>🏛️ ICMT Founders & Distinguished Academic Pillars</h2>
-    <p>
-      The Indian Commerce and Management Teachers (ICMT) platform was founded by eminent academicians and former Vice Chancellors to create a collaborative bridge for scholarship, research mentoring, and educational innovation.
-    </p>
-    <div class="founders-grid">
-      <div class="founder-card">
-        <b>Prof. V. Bala Mohandas</b>
-        <span>Former Vice Chancellor, Acharya Nagarjuna University, Andhra Pradesh</span>
+    <h2>📚 Academic & Research Programs</h2>
+    <div class="grid-3" style="margin-top:20px">
+      <div class="feature-card">
+        <div class="icon">🎓</div>
+        <h3>Doctoral Research Conclaves</h3>
+        <p>Annual research conclaves providing doctoral candidates with direct feedback from recognized Ph.D. supervisors across commerce, finance, and marketing.</p>
       </div>
-      <div class="founder-card">
-        <b>Prof. Ch. Ramaprasada Rao</b>
-        <span>Retd. Professor, Sri Krishnadevaraya University, Andhra Pradesh</span>
-      </div>
-      <div class="founder-card">
-        <b>Prof. K. Venugopal Rao</b>
-        <span>Former Vice Chancellor, Himalayan University</span>
-      </div>
-      <div class="founder-card">
-        <b>Prof. NVR Jyoti Kumar</b>
-        <span>Vice Chancellor, Sri Krishnadevaraya University, Andhra Pradesh</span>
-      </div>
-      <div class="founder-card">
-        <b>Dr. Inguava Gopinath</b>
-        <span>Former Senior Scientist ISRO, Sriharikota</span>
-      </div>
-      <div class="founder-card">
-        <b>Prof. V Barla</b>
-        <span>Advisor IIC, CBIT, Hyderabad</span>
-      </div>
-      <div class="founder-card">
-        <b>Prof. Satyanarayana Parayitam</b>
-        <span>Charlton College of Business, University of Massachusetts Dartmouth</span>
-      </div>
-      <div class="founder-card">
-        <b>Prof. Himachalam Dasaraju</b>
-        <span>Rtd. Professor, Sri Venkateshwara University, Tirupathi</span>
-      </div>
-      <div class="founder-card">
-        <b>Sri Anand Musunur</b>
-        <span>Tata Consultancy Services, USA</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-block">
-    <h2>🎓 Research Guideship & Doctoral Mentorship</h2>
-    <p>
-      Over 20+ faculty members in the ICMT network actively serve as recognized research supervisors for Ph.D. and M.Phil. scholars across prominent Central, State, and Deemed Universities.
-    </p>
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="icon">📘</div>
-        <h3>Commerce & Banking</h3>
-        <p>Doctoral guidance in Financial Management, Accounting Standards, Corporate Taxation, and Fintech Systems.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="icon">📊</div>
-        <h3>Management & Strategy</h3>
-        <p>Research supervision in Strategic HR, Marketing Analytics, Organizational Behavior, and Supply Chain Networks.</p>
-      </div>
-      <div class="pillar-card">
+      <div class="feature-card">
         <div class="icon">💡</div>
-        <h3>Technology & Economics</h3>
-        <p>Interdisciplinary research in Business Analytics, Applied Econometrics, AI in Commerce, and Development Economics.</p>
+        <h3>Faculty Development Programs</h3>
+        <p>National workshops on advanced data analysis tools (SPSS, R, Python, PLS-SEM), case study pedagogy, and emerging fintech applications.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📖</div>
+        <h3>Publication Guidance</h3>
+        <p>Mentorship on writing high-impact research papers for Scopus, Web of Science, and UGC-CARE indexed international journals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🌐</div>
+        <h3>Faculty Directory & Networking</h3>
+        <p>Centralized digital repository connecting 340+ scholars across 25+ states to foster inter-institutional research and co-authorship.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏛️</div>
+        <h3>Curriculum Modernization</h3>
+        <p>Advisory frameworks for aligning business and commerce curriculum with NEP 2020, industry requirements, and digital transformation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🤝</div>
+        <h3>Industry-Academia Bridge</h3>
+        <p>Interactive seminars connecting corporate leaders and educators to enrich teaching case studies and student research internships.</p>
       </div>
     </div>
   </div>
 
   <div class="banner-cta">
     <div class="banner-cta-text">
-      <h3>Explore the Faculty Directory</h3>
-      <p>Search all 343 verified faculty profiles, qualifications, research supervisors, and institution details.</p>
+      <h3>Looking for Research Supervisors?</h3>
+      <p>Search faculty members by doctoral guideship, expertise, and university affiliations.</p>
     </div>
     <a href="public-directory.html" class="btn-cta">
-      <span>Open Faculty Directory</span>
-      <svg style="width:16px;height:16px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      <span>Browse Faculty Directory &rarr;</span>
     </a>
   </div>
 </main>
@@ -537,6 +489,5 @@ a{text-decoration:none;color:inherit}
     &copy; 2026 Indian Commerce and Management Teachers (ICMT). All rights reserved.
   </div>
 </footer>
-
 </body>
 </html>
