@@ -3,43 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ICMT Faculty — Overview & Directory</title>
+<title>ICMT — Indian Commerce and Management Teachers | Faculty Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0d3554;
-  --navy-dark:#08243a;
-  --blue:#126b9b;
-  --blue-hover:#0f577e;
+  --navy:#1e6c93;
+  --navy-dark:#004d66;
+  --blue:#1e6c93;
+  --blue-hover:#005a7d;
   --blue2:#eaf5fb;
   --green:#21865b;
-  --bg:#f4f7fb;
+  --bg:#f8fafc;
   --card-bg:#ffffff;
   --line:#dfe6ee;
-  --text:#172033;
+  --text:#212121;
   --muted:#667085;
   --white:#ffffff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
 
-/* Header */
+/* Header & Navigation */
 .header{
   background:var(--navy);
   color:#fff;
-  padding:16px 24px;
+  padding:12px 24px;
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
 }
 .header-inner{
-  max-width:1200px;
+  max-width:1280px;
   margin:0 auto;
   display:flex;
   justify-content:space-between;
@@ -49,55 +52,114 @@ a{text-decoration:none;color:inherit}
 .brand{
   display:flex;
   flex-direction:column;
+  text-decoration:none;
+  color:#fff;
 }
 .brand-title{
-  font-size:20px;
-  font-weight:800;
-  letter-spacing:-0.3px;
-  color:#fff;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  line-height:1.2;
 }
 .brand-sub{
   font-size:11px;
-  color:#a9c4d6;
-  font-weight:400;
+  color:#d5eaf5;
+  font-weight:300;
 }
 .nav-links{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:4px;
+  flex-wrap:wrap;
 }
-.nav-btn{
-  padding:8px 16px;
-  border-radius:8px;
+.nav-item{
+  padding:8px 12px;
+  border-radius:6px;
   font-size:13px;
-  font-weight:600;
+  font-weight:400;
+  color:#ffffff;
+  text-decoration:none;
   transition:all .15s ease;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
+  white-space:nowrap;
 }
-.nav-btn-primary{
-  background:var(--blue);
-  color:#fff;
+.nav-item:hover{
+  background:rgba(255,255,255,0.15);
+  color:#ffffff;
 }
-.nav-btn-primary:hover{
-  background:var(--blue-hover);
-  transform:translateY(-1px);
+.nav-dropdown{
+  position:relative;
+  display:inline-block;
 }
-.nav-btn-ghost{
-  background:rgba(255,255,255,0.1);
-  color:#e2edf5;
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#ffffff;
+  min-width:190px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+  border-radius:8px;
+  padding:6px 0;
+  z-index:110;
+  border:1px solid #dfe6ee;
 }
-.nav-btn-ghost:hover{
-  background:rgba(255,255,255,0.2);
-  color:#fff;
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{
+  display:block;
+}
+.dropdown-item{
+  display:block;
+  padding:8px 16px;
+  font-size:13px;
+  color:#212121;
+  text-decoration:none;
+  transition:background .15s ease;
+}
+.dropdown-item:hover{
+  background:#eaf5fb;
+  color:#1e6c93;
+}
+.nav-dropdown.active > .nav-item,
+.nav-item.active{
+  background:rgba(0,0,0,0.2);
+  font-weight:700;
+  color:#ffffff;
+}
+.nav-btn-admin{
+  background:#ffffff;
+  color:var(--navy);
+  padding:7px 15px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  margin-left:6px;
+  transition:all .15s ease;
+}
+.nav-btn-admin:hover{
+  background:#eaf5fb;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Site Welcome Banner */
+.site-welcome-banner{
+  background:rgba(30,108,147,0.08);
+  border-bottom:1px solid rgba(30,108,147,0.15);
+  padding:10px 24px;
+  text-align:center;
+  font-size:13px;
+  color:#004d66;
+  font-weight:600;
+}
+.site-welcome-banner b{
+  color:var(--navy);
 }
 
 /* Hero Section */
 .hero{
-  background:linear-gradient(135deg,#0d3554 0%,#126b9b 100%);
+  background:linear-gradient(135deg,#1e6c93 0%,#004d66 100%);
   color:#fff;
-  padding:64px 24px 72px;
+  padding:56px 24px 64px;
   text-align:center;
   position:relative;
   overflow:hidden;
@@ -107,75 +169,94 @@ a{text-decoration:none;color:inherit}
   position:absolute;
   inset:0;
   background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.08) 0%,transparent 50%),
-             radial-gradient(circle at 80% 70%,rgba(18,107,155,0.25) 0%,transparent 50%);
+             radial-gradient(circle at 80% 70%,rgba(73,170,212,0.2) 0%,transparent 50%);
   pointer-events:none;
 }
 .hero-content{
-  max-width:860px;
+  max-width:880px;
   margin:0 auto;
   position:relative;
   z-index:1;
 }
 .hero-badge{
   display:inline-block;
-  background:rgba(255,255,255,0.15);
-  color:#e0f2fe;
-  padding:6px 14px;
+  background:rgba(255,255,255,0.18);
+  color:#eaf5fb;
+  padding:6px 16px;
   border-radius:20px;
   font-size:12px;
   font-weight:700;
   letter-spacing:0.5px;
   text-transform:uppercase;
-  margin-bottom:20px;
+  margin-bottom:18px;
   backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.25);
 }
 .hero h1{
-  font-size:38px;
-  font-weight:800;
-  line-height:1.2;
-  margin-bottom:18px;
-  letter-spacing:-0.5px;
+  font-size:36px;
+  font-weight:700;
+  line-height:1.25;
+  margin-bottom:16px;
+  letter-spacing:-0.4px;
 }
 .hero p{
   font-size:16px;
   color:#dbeaf4;
   line-height:1.7;
-  margin-bottom:32px;
+  margin-bottom:28px;
+  font-weight:300;
 }
-.hero-cta{
+.hero-actions{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.hero-cta-primary{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:8px;
   background:#fff;
   color:var(--navy);
-  font-size:16px;
+  font-size:15px;
   font-weight:700;
-  padding:14px 32px;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  padding:12px 28px;
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
   transition:all .2s ease;
 }
-.hero-cta:hover{
+.hero-cta-primary:hover{
   background:#f0f7fc;
   transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(0,0,0,0.25);
-  color:var(--blue);
+  box-shadow:0 12px 25px rgba(0,0,0,0.2);
+  color:var(--navy-dark);
 }
-.hero-cta svg{
-  width:18px;
-  height:18px;
-  transition:transform .2s ease;
+.hero-cta-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(255,255,255,0.15);
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,0.3);
+  font-size:15px;
+  font-weight:700;
+  padding:12px 26px;
+  border-radius:8px;
+  transition:all .2s ease;
 }
-.hero-cta:hover svg{
-  transform:translateX(3px);
+.hero-cta-secondary:hover{
+  background:rgba(255,255,255,0.25);
+  transform:translateY(-2px);
+  color:#ffffff;
 }
 
 /* Stats Bar */
 .stats-bar{
   max-width:1100px;
-  margin:-32px auto 48px;
+  margin:-30px auto 44px;
   padding:0 24px;
   position:relative;
   z-index:2;
@@ -185,17 +266,17 @@ a{text-decoration:none;color:inherit}
   grid-template-columns:repeat(4,1fr);
   gap:16px;
   background:#fff;
-  border-radius:14px;
-  padding:24px 28px;
+  border-radius:12px;
+  padding:22px 26px;
   border:1px solid var(--line);
-  box-shadow:0 12px 30px rgba(13,53,84,0.08);
+  box-shadow:0 10px 25px rgba(30,108,147,0.08);
 }
 .stat-card{
   text-align:center;
 }
 .stat-num{
-  font-size:30px;
-  font-weight:800;
+  font-size:28px;
+  font-weight:700;
   color:var(--navy);
   line-height:1.1;
   margin-bottom:4px;
@@ -211,19 +292,19 @@ a{text-decoration:none;color:inherit}
 /* Introduction & Pillars */
 .section{
   max-width:1100px;
-  margin:0 auto 56px;
+  margin:0 auto 52px;
   padding:0 24px;
 }
 .section-head{
   text-align:center;
-  max-width:700px;
-  margin:0 auto 36px;
+  max-width:760px;
+  margin:0 auto 34px;
 }
 .section-head h2{
   font-size:26px;
-  font-weight:800;
+  font-weight:700;
   color:var(--navy);
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 .section-head p{
   font-size:14px;
@@ -237,93 +318,162 @@ a{text-decoration:none;color:inherit}
 .info-card{
   background:#fff;
   border:1px solid var(--line);
-  border-radius:12px;
-  padding:26px 22px;
+  border-radius:10px;
+  padding:24px 20px;
   transition:all .18s ease;
   display:flex;
   flex-direction:column;
 }
 .info-card:hover{
   transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(13,53,84,0.07);
+  box-shadow:0 8px 22px rgba(30,108,147,0.08);
   border-color:#b9d2e3;
 }
 .card-icon{
-  width:44px;
-  height:44px;
-  border-radius:10px;
-  background:var(--blue2);
-  color:var(--blue);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-weight:800;
-  margin-bottom:18px;
+  font-size:28px;
+  margin-bottom:12px;
 }
 .info-card h3{
   font-size:17px;
   font-weight:700;
   color:var(--navy);
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 .info-card p{
   font-size:13px;
-  color:var(--muted);
+  color:#4a5568;
   line-height:1.6;
 }
 
-/* Call to Action Banner */
+/* Founders / Mentors Bar */
+.founders-card{
+  background:#ffffff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:28px;
+  margin-top:20px;
+  box-shadow:0 4px 14px rgba(30,108,147,0.04);
+}
+.founders-card h3{
+  font-size:18px;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:14px;
+  text-align:center;
+}
+.founders-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.founder-box{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:12px 14px;
+  font-size:12px;
+}
+.founder-box b{
+  display:block;
+  color:#1e6c93;
+  font-size:13px;
+  margin-bottom:2px;
+}
+.founder-box span{
+  color:#64748b;
+  line-height:1.4;
+  display:block;
+}
+
+/* Banner */
 .banner{
-  max-width:1100px;
-  margin:0 auto 64px;
-  padding:0 24px;
+  background:linear-gradient(135deg,#004d66 0%,#1e6c93 100%);
+  color:#fff;
+  padding:40px 24px;
+  margin:20px 0 0;
 }
 .banner-inner{
-  background:var(--blue2);
-  border:1px solid #c2def0;
-  border-radius:14px;
-  padding:36px;
+  max-width:1100px;
+  margin:0 auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:24px;
+  flex-wrap:wrap;
 }
 .banner-text h3{
-  font-size:21px;
-  font-weight:800;
-  color:var(--navy);
+  font-size:22px;
+  font-weight:700;
   margin-bottom:6px;
 }
 .banner-text p{
   font-size:14px;
-  color:#35566b;
+  color:#d5eaf5;
 }
 
 /* Footer */
 .footer{
-  background:#fff;
+  background:#ffffff;
   border-top:1px solid var(--line);
-  padding:24px;
-  text-align:center;
+  padding:32px 24px 24px;
   font-size:13px;
   color:var(--muted);
 }
-.footer a{
-  color:var(--blue);
-  font-weight:600;
+.footer-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:24px;
+}
+.footer-brand b{
+  font-size:14px;
+  color:#212121;
+  display:block;
+  margin-bottom:4px;
+}
+.footer-brand p{
+  font-size:12px;
+  color:#667085;
+  max-width:480px;
+}
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  font-size:13px;
+}
+.footer-links a{
+  color:#1e6c93;
+  transition:color .15s ease;
+}
+.footer-links a:hover{
+  text-decoration:underline;
+  color:#004d66;
+}
+.footer-bottom{
+  max-width:1280px;
+  margin:20px auto 0;
+  padding-top:16px;
+  border-top:1px solid #edf2f7;
+  text-align:center;
+  font-size:12px;
+  color:#94a3b8;
 }
 
-@media(max-width:850px){
-  .hero h1{font-size:28px}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:980px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
   .cards-grid{grid-template-columns:1fr}
-  .banner-inner{flex-direction:column;text-align:center}
+  .founders-grid{grid-template-columns:1fr}
 }
-@media(max-width:500px){
-  .stats-grid{grid-template-columns:1fr}
+@media(max-width:640px){
   .header-inner{flex-direction:column;align-items:flex-start}
-  .nav-links{width:100%;justify-content:space-between}
+  .nav-links{width:100%;margin-top:8px}
+  .stats-grid{grid-template-columns:1fr}
+  .hero h1{font-size:26px}
 }
 </style>
 </head>
@@ -331,30 +481,51 @@ a{text-decoration:none;color:inherit}
 
 <header class="header">
   <div class="header-inner">
-    <div class="brand">
-      <span class="brand-title">ICMT Faculty Directory</span>
-      <span class="brand-sub">International Council for Management & Technology • Academic Portal</span>
-    </div>
+    <a href="https://sites.google.com/view/icmtmembers/home" class="brand">
+      <span class="brand-title">ICMT</span>
+      <span class="brand-sub">Indian Commerce and Management Teachers</span>
+    </a>
     <nav class="nav-links">
-      <a href="faculty.html" class="nav-btn nav-btn-ghost">Faculty Information</a>
-      <a href="public-directory.html" class="nav-btn nav-btn-primary">View Directory</a>
-      <a href="admin.html" class="nav-btn nav-btn-ghost">Admin Login</a>
+      <a href="https://sites.google.com/view/icmtmembers/home" class="nav-item">Home</a>
+      <a href="https://sites.google.com/view/icmtmembers/about-us" class="nav-item">About Us</a>
+      <a href="https://sites.google.com/view/icmtmembers/our-initiatives" class="nav-item">Our Initiatives</a>
+      <a href="https://sites.google.com/view/icmtmembers/events" class="nav-item">Events</a>
+      <div class="nav-dropdown active">
+        <a href="faculty.html" class="nav-item nav-dropdown-toggle">Faculty ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="faculty.html" class="dropdown-item">Faculty Information</a>
+          <a href="public-directory.html" class="dropdown-item">Faculty Directory</a>
+        </div>
+      </div>
+      <a href="https://sites.google.com/view/icmtmembers/icmt-resources" class="nav-item">ICMT Resources</a>
+      <a href="https://sites.google.com/view/icmtmembers/contact-us" class="nav-item">Contact Us</a>
+      <a href="admin.html" class="nav-btn-admin">Admin Login</a>
     </nav>
   </div>
 </header>
 
+<div class="site-welcome-banner">
+  Welcome to the <b>Indian Commerce and Management Teachers (ICMT)</b> — a non-profit professional platform built by academicians, for academicians.
+</div>
+
 <main>
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">Official Faculty Portal</span>
+      <span class="hero-badge">Academic Faculty Portal</span>
       <h1>Empowering Scholarly Excellence & Academic Innovation</h1>
       <p>
-        The International Conference on Management & Technology (ICMT) Faculty Directory connects distinguished professors, associate professors, deans, directors, and research scholars from leading colleges, universities, and institutions across the nation.
+        The ICMT Faculty Directory connects distinguished professors, associate professors, deans, directors, and doctoral research supervisors from premier colleges, universities, and institutions nationwide.
       </p>
-      <a href="public-directory.html" class="hero-cta">
-        <span>View Faculty Directory</span>
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-      </a>
+      <div class="hero-actions">
+        <a href="faculty.html" class="hero-cta-secondary">
+          <span>Faculty Information</span>
+          <svg style="width:16px;height:16px;vertical-align:middle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </a>
+        <a href="public-directory.html" class="hero-cta-primary">
+          <span>Explore Faculty Directory</span>
+          <svg style="width:16px;height:16px;vertical-align:middle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -382,26 +553,68 @@ a{text-decoration:none;color:inherit}
   <section class="section">
     <div class="section-head">
       <h2>About ICMT Faculty Network</h2>
-      <p>A unified knowledge network facilitating academic collaboration, multidisciplinary research mentorship, and professional peer exchange.</p>
+      <p>A unified academic repository facilitating knowledge exchange, doctoral guidance, research mentorship, and professional peer networking across India and abroad.</p>
     </div>
 
     <div class="cards-grid">
       <div class="info-card">
         <div class="card-icon">🎓</div>
         <h3>Doctoral Research & Guideship</h3>
-        <p>Experienced mentors and supervisors providing doctoral guidance (Ph.D., M.Phil.) across commerce, business management, analytics, and applied sciences.</p>
+        <p>Experienced supervisors providing Ph.D. and M.Phil. research mentorship across commerce, business management, finance, data analytics, and behavioral sciences.</p>
       </div>
 
       <div class="info-card">
         <div class="card-icon">🌐</div>
         <h3>Multidisciplinary Expertise</h3>
-        <p>Faculty specializing in finance, strategic management, corporate governance, machine learning, organizational behavior, supply chain, and economics.</p>
+        <p>Faculty specializing in banking, corporate governance, strategic management, artificial intelligence in commerce, marketing, supply chain, and microeconomics.</p>
       </div>
 
       <div class="info-card">
         <div class="card-icon">🏛️</div>
-        <h3>Institutional Network</h3>
-        <p>Representing premier central universities, state universities, autonomous institutions, engineering & management colleges nationwide.</p>
+        <h3>Institutional Reach</h3>
+        <p>Representing premier central universities, state universities, autonomous colleges, management institutes, and international partner faculties.</p>
+      </div>
+    </div>
+
+    <div class="founders-card">
+      <h3>ICMT Distinguished Academic Founders & Mentors</h3>
+      <div class="founders-grid">
+        <div class="founder-box">
+          <b>Prof. V. Bala Mohandas</b>
+          <span>Former VC, Acharya Nagarjuna University, Andhra Pradesh</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. Ch. Ramaprasada Rao</b>
+          <span>Retd. Professor, Sri Krishnadevaraya University, Andhra Pradesh</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. K. Venugopal Rao</b>
+          <span>Former VC, Himalayan University</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. NVR Jyoti Kumar</b>
+          <span>VC, Sri Krishnadevaraya University, Andhra Pradesh</span>
+        </div>
+        <div class="founder-box">
+          <b>Dr. Inguava Gopinath</b>
+          <span>Former Senior Scientist ISRO, Sriharikota</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. V Barla</b>
+          <span>Advisor IIC, CBIT, Hyderabad</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. Satyanarayana Parayitam</b>
+          <span>Charlton College of Business, UMass Dartmouth</span>
+        </div>
+        <div class="founder-box">
+          <b>Prof. Himachalam Dasaraju</b>
+          <span>Rtd. Professor, Sri Venkateshwara University, Tirupathi</span>
+        </div>
+        <div class="founder-box">
+          <b>Sri Anand Musunur</b>
+          <span>Tata Consultancy Services, USA</span>
+        </div>
       </div>
     </div>
   </section>
@@ -409,10 +622,10 @@ a{text-decoration:none;color:inherit}
   <section class="banner">
     <div class="banner-inner">
       <div class="banner-text">
-        <h3>Explore the Complete Directory</h3>
-        <p>Search faculty members by name, institution, designation, state, or specialization area.</p>
+        <h3>Ready to Explore Faculty Profiles?</h3>
+        <p>Search faculty by name, qualification, institution, designation, state, or specialization area.</p>
       </div>
-      <a href="public-directory.html" class="nav-btn nav-btn-primary" style="padding:12px 24px;font-size:15px;white-space:nowrap">
+      <a href="public-directory.html" class="hero-cta-primary" style="white-space:nowrap">
         Browse Directory &rarr;
       </a>
     </div>
@@ -420,13 +633,25 @@ a{text-decoration:none;color:inherit}
 </main>
 
 <footer class="footer">
-  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-    <div>&copy; 2026 <b>ICMT</b> &mdash; International Council for Management & Technology. All rights reserved.</div>
-    <div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <b>Indian Commerce and Management Teachers (ICMT)</b>
+      <p>A non-profit professional platform built by academicians, for academicians.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://sites.google.com/view/icmtmembers/home">Home</a> &bull;
+      <a href="https://sites.google.com/view/icmtmembers/about-us">About Us</a> &bull;
+      <a href="https://sites.google.com/view/icmtmembers/our-initiatives">Our Initiatives</a> &bull;
+      <a href="https://sites.google.com/view/icmtmembers/events">Events</a> &bull;
       <a href="faculty.html">Faculty Information</a> &bull;
       <a href="public-directory.html">Faculty Directory</a> &bull;
-      <a href="admin.html">Administrator Login</a>
+      <a href="https://sites.google.com/view/icmtmembers/icmt-resources">ICMT Resources</a> &bull;
+      <a href="https://sites.google.com/view/icmtmembers/contact-us">Contact Us</a> &bull;
+      <a href="admin.html">Admin Portal</a>
     </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Indian Commerce and Management Teachers (ICMT). All rights reserved.
   </div>
 </footer>
 

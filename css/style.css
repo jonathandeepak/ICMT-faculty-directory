@@ -1,22 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 :root{
-  --navy:#0d3554;
-  --navy-dark:#08243a;
-  --blue:#126b9b;
-  --blue-hover:#0f577e;
+  --navy:#1e6c93;
+  --navy-dark:#004d66;
+  --blue:#1e6c93;
+  --blue-hover:#005a7d;
   --blue2:#eaf5fb;
   --green:#21865b;
   --red:#c74646;
   --bg:#f4f7fb;
   --card-bg:#ffffff;
   --line:#dfe6ee;
-  --text:#172033;
+  --text:#212121;
   --muted:#667085;
   --white:#ffffff;
 }
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.5;
