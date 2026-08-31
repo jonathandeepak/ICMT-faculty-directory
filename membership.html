@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Membership — ICMT Indian Commerce and Management Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* Membership Specific Layout & Components */
+.membership-tabs{
+  display:flex;
+  gap:12px;
+  margin:24px 0 28px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.m-tab-btn{
+  background:#ffffff;
+  border:2px solid #cbd5e1;
+  color:#334155;
+  padding:10px 24px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.m-tab-btn.active,.m-tab-btn:hover{
+  background:#1e6c93;
+  color:#ffffff;
+  border-color:#1e6c93;
+  box-shadow:0 4px 14px rgba(30,108,147,0.2);
+}
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px;
+  margin-top:20px;
+}
+.category-card{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:26px 22px;
+  transition:var(--transition);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  box-shadow:var(--shadow-sm);
+}
+.category-card:hover{
+  transform:translateY(-4px);
+  border-color:#1e6c93;
+  box-shadow:var(--shadow-md);
+}
+.category-card.featured{
+  border:2px solid #1e6c93;
+  background:linear-gradient(180deg, #f0f7fb 0%, #ffffff 100%);
+}
+.badge-popular{
+  position:absolute;
+  top:-12px;
+  right:20px;
+  background:#1e6c93;
+  color:#ffffff;
+  padding:4px 12px;
+  border-radius:12px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  box-shadow:0 2px 8px rgba(30,108,147,0.25);
+}
+.cat-title{
+  font-size:18px;
+  font-weight:700;
+  color:#1e6c93;
+  margin-bottom:6px;
+}
+.cat-eligibility{
+  font-size:12.5px;
+  color:#64748b;
+  margin-bottom:14px;
+  min-height:36px;
+  line-height:1.45;
+}
+.cat-fee{
+  font-size:24px;
+  font-weight:800;
+  color:#0f172a;
+  margin-bottom:18px;
+  padding-bottom:14px;
+  border-bottom:1px solid #e2e8f0;
+  display:flex;
+  align-items:baseline;
+  gap:4px;
+}
+.cat-fee small{
+  font-size:12px;
+  font-weight:400;
+  color:#64748b;
+}
+.cat-features{
+  list-style:none;
+  padding:0;
+  margin:0 0 24px;
+  flex-grow:1;
+}
+.cat-features li{
+  font-size:13px;
+  color:#334155;
+  margin-bottom:10px;
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  line-height:1.45;
+}
+.cat-features li svg{
+  flex-shrink:0;
+  width:16px;
+  height:16px;
+  color:#21865b;
+  margin-top:2px;
+}
+
+/* Steps Flow */
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+  margin-top:24px;
+}
+.step-card{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:22px 18px;
+  text-align:center;
+  position:relative;
+  transition:var(--transition);
+}
+.step-card:hover{
+  background:#ffffff;
+  border-color:#b9d2e3;
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-sm);
+}
+.step-num{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#1e6c93;
+  color:#ffffff;
+  font-weight:800;
+  font-size:15px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  box-shadow:0 3px 8px rgba(30,108,147,0.25);
+}
+.step-card h3{
+  font-size:15px;
+  font-weight:700;
+  color:#1e6c93;
+  margin-bottom:6px;
+}
+.step-card p{
+  font-size:12.5px;
+  color:#64748b;
+  margin:0;
+  line-height:1.5;
+}
+
+/* Application Form */
+.apply-form-container{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:34px;
+  box-shadow:var(--shadow-md);
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.full-col{
+  grid-column:1/-1;
+}
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.form-group label{
+  font-size:13px;
+  font-weight:700;
+  color:#334155;
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;
+  padding:10px 14px;
+  border:1px solid #cbd5df;
+  border-radius:8px;
+  font-size:13.5px;
+  outline:none;
+  transition:all .15s ease;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:#1e6c93;
+  box-shadow:0 0 0 3px rgba(30,108,147,0.12);
+}
+.form-help{
+  font-size:11.5px;
+  color:#64748b;
+}
+
+/* Existing Member Option Box */
+.existing-member-box{
+  background:linear-gradient(135deg, #eaf5fb 0%, #f0f7fb 100%);
+  border:1px solid #b9d2e3;
+  border-radius:12px;
+  padding:26px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:28px;
+}
+.existing-member-box h3{
+  font-size:18px;
+  font-weight:700;
+  color:#1e6c93;
+  margin-bottom:4px;
+}
+.existing-member-box p{
+  font-size:13.5px;
+  color:#475569;
+  margin:0;
+}
+
+@media(max-width:980px){
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .form-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .steps-grid{grid-template-columns:1fr}
+  .existing-member-box{flex-direction:column;text-align:center}
+}
+
+</style>
+</head>
+<body>
+
+<div class="site-welcome-banner">
+  Welcome to the <b>Indian Commerce and Management Teachers (ICMT)</b> — a non-profit professional platform built by academicians, for academicians.
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/images/icmt-logo.png" alt="ICMT Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">ICMT</span>
+        <span class="brand-sub">Indian Commerce and Management Teachers</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-item ">Home</a>
+      <a href="about-us.html" class="nav-item ">About Us</a>
+      <a href="initiatives.html" class="nav-item ">Our Initiatives</a>
+      <a href="events.html" class="nav-item ">Events</a>
+      <a href="membership.html" class="nav-item active">Membership</a>
+      <a href="members.html" class="nav-item ">Members</a>
+      <div class="nav-dropdown ">
+        <a href="faculty.html" class="nav-item nav-dropdown-toggle">Faculty ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="faculty.html" class="dropdown-item ">Faculty Information</a>
+          <a href="public-directory.html" class="dropdown-item ">Faculty Directory</a>
+        </div>
+      </div>
+      <a href="resources.html" class="nav-item ">ICMT Resources</a>
+      <a href="contact.html" class="nav-item ">Contact Us</a>
+      <a href="admin.html" class="nav-btn-admin">Admin Login</a>
+    </nav>
+  </div>
+</header>
+
+<section class="site-hero">
+  <div class="site-hero-inner">
+    <span class="hero-badge">ICMT Professional Academic Membership</span>
+    <h1>Empowering Academicians, Advancing Business & Management Scholarship</h1>
+    <p>
+      Join India's premier national network of commerce and management educators, researchers, deans, and institutional leaders committed to high-impact research, doctoral mentorship, and academic excellence.
+    </p>
+    <div class="hero-actions">
+      <a href="#apply-section" class="hero-cta-primary">
+        <span>Apply for Membership</span>
+        <svg style="width:16px;height:16px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+      <a href="public-directory.html" class="hero-cta-secondary">
+        <span>Existing Member? Search Profile</span>
+        <svg style="width:16px;height:16px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </a>
+    </div>
+  </div>
+  
+<div class="hero-wave">
+  <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+    <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#f8fafc"></path>
+  </svg>
+</div>
+
+</section>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span>&rsaquo;</span>
+    <span style="color:#212121;font-weight:700">Membership</span>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- 1. Introduction & Why Join -->
+  <div class="section-block">
+    <h2>🎯 Why Become an ICMT Member?</h2>
+    <p>
+      The Indian Commerce and Management Teachers (ICMT) platform serves as the premier non-profit professional association connecting faculty members, doctoral supervisors, academic deans, and research scholars across commerce, business management, economics, and allied social sciences.
+    </p>
+    <p>
+      Whether you are an established professor or an early-career researcher, ICMT membership provides national institutional visibility, collaborative publishing opportunities, and recognized academic credentials.
+    </p>
+
+    <div class="grid-3" style="margin-top:22px">
+      <div class="feature-card">
+        <div class="icon">🏛️</div>
+        <h3>National Academic Recognition</h3>
+        <p>Gain a verified credential in the national ICMT directory cited by peer institutions, search committees, and regulatory bodies.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔬</div>
+        <h3>Research Collaboration & Guideship</h3>
+        <p>Connect with co-investigators for major UGC/ICSSR research grants, joint Ph.D. guidance, and multi-university projects.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📊</div>
+        <h3>Higher Education Policy Insights</h3>
+        <p>Receive regular Policy Pulse briefs on NEP 2020 curriculum frameworks, UGC-CARE norms, and NAAC/NIRF accreditation best practices.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Membership Benefits -->
+  <div class="section-block">
+    <h2>🌟 Key Membership Benefits</h2>
+    <p>Discover the comprehensive range of academic privileges, digital resources, and networking benefits available to ICMT members:</p>
+
+    <div class="grid-3" style="margin-top:20px">
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>National Faculty Directory Profile</h3>
+        <p>A dedicated public profile cataloging your qualifications, doctoral guideship, institution, research areas, and contact links.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📑</div>
+        <h3>Publication & Conference Privileges</h3>
+        <p>Priority consideration for conference paper presentations, reviewer panels, and discounts on ICMT publishing workshops.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💼</div>
+        <h3>ICMT Careers & Placement Portal</h3>
+        <p>Direct notifications on faculty vacancies, visiting professorships, and dean/director appointments across partner colleges.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎙️</div>
+        <h3>GPSN Public Speaking & Leadership</h3>
+        <p>Opportunities to chair academic tracks, deliver webinars, and participate in peer communication mastery masterclasses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📘</div>
+        <h3>Teaching & Case Study Repositories</h3>
+        <p>Access to curated Indian management case studies, empirical datasets, and syllabus templates for business schools.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎓</div>
+        <h3>Doctoral Research Mentorship</h3>
+        <p>Specialized statistical workshops (PLS-SEM, R, Python in Business Analytics) for scholars and research supervisors.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Membership Categories -->
+  <div class="section-block">
+    <h2>📑 Membership Categories & Eligibility</h2>
+    <p>Choose the category that best aligns with your academic standing, institutional role, or research pursuits:</p>
+
+    <!-- Category Toggle Buttons -->
+    <div class="membership-tabs">
+      <button class="m-tab-btn active" onclick="switchCategory('individual')">Individual / Faculty Membership</button>
+      <button class="m-tab-btn" onclick="switchCategory('institutional')">Institutional Membership</button>
+    </div>
+
+    <!-- Individual Membership Grid -->
+    <div id="cat-individual" class="category-grid">
+      
+      <!-- Category 1: Life Member -->
+      <div class="category-card featured">
+        <span class="badge-popular">Most Popular</span>
+        <div class="cat-title">Life Member (Faculty)</div>
+        <div class="cat-eligibility">For Professors, Associate & Assistant Professors in Commerce & Management with 3+ years teaching experience.</div>
+        <div class="cat-fee">₹ 3,500 <small>/ Lifetime</small></div>
+        <ul class="cat-features">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Permanent verified listing in the National Faculty Directory
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Voting rights & eligibility for ICMT Executive Council
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Concession on all national conclaves & FDP masterclasses
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Official Life Membership Certificate & Digital Badge
+          </li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Life Member (Faculty)')" class="btn primary full">Apply for Life Membership</a>
+      </div>
+
+      <!-- Category 2: Annual Member -->
+      <div class="category-card">
+        <div class="cat-title">Annual Member (Faculty)</div>
+        <div class="cat-eligibility">For educators, contractual faculty, and visiting lecturers seeking annual association.</div>
+        <div class="cat-fee">₹ 1,000 <small>/ Per Annum</small></div>
+        <ul class="cat-features">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Active Directory listing during membership validity
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Access to Policy Pulse regulatory updates
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Member rates for webinars & training sessions
+          </li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Annual Member (Faculty)')" class="btn secondary full">Apply for Annual Membership</a>
+      </div>
+
+      <!-- Category 3: Research Scholar / Student -->
+      <div class="category-card">
+        <div class="cat-title">Research Scholar Member</div>
+        <div class="cat-eligibility">For registered Ph.D., M.Phil., and postgraduate research scholars in Commerce/Management.</div>
+        <div class="cat-fee">₹ 600 <small>/ Per Annum</small></div>
+        <ul class="cat-features">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Subsidized access to Doctoral Research Conclaves
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Thesis methodology clinics & data toolkits
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            ICMT Careers entry-level academic notifications
+          </li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Research Scholar Member')" class="btn secondary full">Apply as Scholar</a>
+      </div>
+
+    </div>
+
+    <!-- Institutional Membership Grid (Initially Hidden) -->
+    <div id="cat-institutional" class="category-grid" style="display:none">
+      
+      <!-- Institutional Category 1 -->
+      <div class="category-card featured">
+        <span class="badge-popular">Higher Education</span>
+        <div class="cat-title">University / Business School</div>
+        <div class="cat-eligibility">For Central, State, Private Universities, Deemed Universities, and autonomous B-Schools.</div>
+        <div class="cat-fee">₹ 25,000 <small>/ 5-Year Term</small></div>
+        <ul class="cat-features">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Nomination of up to 5 faculty members as Life Members
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Institutional logo branding on national conclaves & proceedings
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Co-hosting rights for regional FDPs and workshops
+          </li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Institutional (University / B-School)')" class="btn primary full">Apply for University Membership</a>
+      </div>
+
+      <!-- Institutional Category 2 -->
+      <div class="category-card">
+        <div class="cat-title">College / Degree Institute</div>
+        <div class="cat-eligibility">For affiliated degree colleges, polytechnics, and department-level affiliations.</div>
+        <div class="cat-fee">₹ 12,000 <small>/ 3-Year Term</small></div>
+        <ul class="cat-features">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Nomination of 2 faculty members as Life Members
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Curriculum advisory & NAAC documentation guidance
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            Bulk registration discounts on student events
+          </li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Institutional (College / Institute)')" class="btn secondary full">Apply for College Membership</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. How to Join -->
+  <div class="section-block">
+    <h2>🚀 How to Join (Simple 4-Step Process)</h2>
+    <p>Follow these four simple steps to become an enrolled member of the ICMT academic fraternity:</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Select Category</h3>
+        <p>Choose between Individual Faculty (Life / Annual / Scholar) or Institutional Membership.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Submit Application</h3>
+        <p>Fill out the online enrollment form with your academic qualifications, department, and institution.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Verification Review</h3>
+        <p>The ICMT Secretariat verifies your academic credentials and processes membership enrollment.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Member ID & Directory</h3>
+        <p>Receive your official ICMT Member ID and activate your verified public profile in the Directory.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Online Application Form -->
+  <div id="apply-section" class="section-block apply-form-container">
+    <h2>✍️ Online Membership Application</h2>
+    <p>Complete the application form below. Our secretariat desk will reach out with payment and onboarding instructions.</p>
+
+    <form id="membershipForm" onsubmit="handleMembershipSubmit(event)" style="margin-top:20px">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label>Membership Category *</label>
+          <select id="mCategory" required>
+            <option value="Life Member (Faculty)">Life Member (Faculty) — ₹ 3,500</option>
+            <option value="Annual Member (Faculty)">Annual Member (Faculty) — ₹ 1,000</option>
+            <option value="Research Scholar Member">Research Scholar Member — ₹ 600</option>
+            <option value="Institutional (University / B-School)">Institutional (University / B-School) — ₹ 25,000</option>
+            <option value="Institutional (College / Institute)">Institutional (College / Institute) — ₹ 12,000</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Academic Title *</label>
+          <select id="mTitle" required>
+            <option>Dr.</option>
+            <option>Prof.</option>
+            <option>Mr.</option>
+            <option>Mrs.</option>
+            <option>Ms.</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input id="mName" required placeholder="e.g. Dr. K. Ramesh Kumar">
+        </div>
+
+        <div class="form-group">
+          <label>Highest Qualification *</label>
+          <input id="mQual" required placeholder="e.g. Ph.D. in Commerce, M.Com, NET/SET">
+        </div>
+
+        <div class="form-group">
+          <label>Designation *</label>
+          <input id="mDesig" required placeholder="e.g. Associate Professor / Dean">
+        </div>
+
+        <div class="form-group">
+          <label>Department *</label>
+          <input id="mDept" required placeholder="e.g. Department of Commerce & Management">
+        </div>
+
+        <div class="form-group">
+          <label>College / University Name *</label>
+          <input id="mCollege" required placeholder="e.g. Sri Krishnadevaraya University">
+        </div>
+
+        <div class="form-group">
+          <label>State / Region *</label>
+          <input id="mState" required placeholder="e.g. Andhra Pradesh, Telangana, Karnataka">
+        </div>
+
+        <div class="form-group">
+          <label>Professional Email *</label>
+          <input id="mEmail" type="email" required placeholder="e.g. ramesh@university.ac.in">
+        </div>
+
+        <div class="form-group">
+          <label>Mobile / WhatsApp Number *</label>
+          <input id="mMobile" type="tel" required placeholder="e.g. +91 9876543210">
+        </div>
+
+        <div class="form-group full-col">
+          <label>Primary Areas of Expertise & Research Specialization</label>
+          <input id="mExpertise" placeholder="e.g. Financial Accounting, Taxation, Corporate Finance, Strategic Management">
+          <span class="form-help">Separate multiple areas with commas.</span>
+        </div>
+
+        <div class="form-group full-col">
+          <label>Research Guideship (Optional)</label>
+          <input id="mGuideship" placeholder="e.g. Ph.D. Supervisor (3 Scholars Awarded), M.Phil. Guide">
+        </div>
+
+      </div>
+
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap">
+        <button type="reset" class="btn secondary">Reset Form</button>
+        <button type="submit" class="btn primary" style="padding:11px 28px;font-size:14.5px">Submit Application &rarr;</button>
+      </div>
+
+      <div id="appSuccessAlert" style="display:none;margin-top:20px;padding:16px;background:#eaf7f0;border-left:4px solid #21865b;border-radius:8px;color:#1d754e">
+        <b style="display:block;font-size:15px;margin-bottom:4px">🎉 Application Submitted Successfully!</b>
+        <p style="margin:0;font-size:13px;color:#2e694d">Thank you for applying to the Indian Commerce and Management Teachers (ICMT). Our secretariat team will review your application and email the formal confirmation within 1-2 business days.</p>
+      </div>
+    </form>
+  </div>
+
+  <!-- 6. Existing Member / Profile Search Option -->
+  <div class="existing-member-box">
+    <div>
+      <h3>🔍 Already an ICMT Member?</h3>
+      <p>Search for your verified profile, research guideship, and contact information in the National Faculty Directory.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="public-directory.html" class="btn primary">Open Faculty Directory &rarr;</a>
+      <a href="admin.html" class="btn secondary">Admin Portal</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/images/icmt-logo.png" alt="ICMT Logo" class="footer-logo">
+      <div>
+        <b>Indian Commerce and Management Teachers (ICMT)</b>
+        <p>A non-profit professional platform built by academicians, for academicians.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a> &bull;
+      <a href="about-us.html">About Us</a> &bull;
+      <a href="initiatives.html">Our Initiatives</a> &bull;
+      <a href="events.html">Events</a> &bull;
+      <a href="membership.html">Membership</a> &bull;
+      <a href="members.html">Members</a> &bull;
+      <a href="faculty.html">Faculty Information</a> &bull;
+      <a href="public-directory.html">Faculty Directory</a> &bull;
+      <a href="resources.html">ICMT Resources</a> &bull;
+      <a href="contact.html">Contact Us</a> &bull;
+      <a href="admin.html">Admin Portal</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Indian Commerce and Management Teachers (ICMT). All rights reserved.
+  </div>
+</footer>
+
+<script>
+function switchCategory(type){
+  const indBtn = document.querySelectorAll('.m-tab-btn')[0];
+  const instBtn = document.querySelectorAll('.m-tab-btn')[1];
+  const indGrid = document.getElementById('cat-individual');
+  const instGrid = document.getElementById('cat-institutional');
+
+  if(type === 'individual'){
+    indBtn.classList.add('active');
+    instBtn.classList.remove('active');
+    indGrid.style.display = 'grid';
+    instGrid.style.display = 'none';
+  } else {
+    instBtn.classList.add('active');
+    indBtn.classList.remove('active');
+    instGrid.style.display = 'grid';
+    indGrid.style.display = 'none';
+  }
+}
+
+function selectPlan(planName){
+  const sel = document.getElementById('mCategory');
+  if(sel){
+    for(let i=0; i<sel.options.length; i++){
+      if(sel.options[i].value.includes(planName) || sel.options[i].text.includes(planName)){
+        sel.selectedIndex = i;
+        break;
+      }
+    }
+  }
+}
+
+function handleMembershipSubmit(e){
+  e.preventDefault();
+  const alertBox = document.getElementById('appSuccessAlert');
+  if(alertBox){
+    alertBox.style.display = 'block';
+    alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('membershipForm').reset();
+  }
+}
+</script>
+
+</body>
+</html>
