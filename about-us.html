@@ -9,6 +9,92 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
+<style>
+  /* AIMA-Style Structural Layout Additions */
+  .aima-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  /* Left Sidebar Navigation */
+  .aima-sidebar {
+    flex: 1 1 250px;
+    max-width: 300px;
+  }
+  .aima-sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .aima-sidebar-menu li {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .aima-sidebar-menu li:last-child {
+    border-bottom: none;
+  }
+  .aima-sidebar-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+    border-left: 4px solid transparent;
+  }
+  .aima-sidebar-menu a:hover, .aima-sidebar-menu a.active {
+    background-color: #f8fafc;
+    color: #1e6c93;
+    border-left-color: #1e6c93;
+  }
+
+  /* Right Main Content Area */
+  .aima-content-area {
+    flex: 3 1 600px;
+  }
+  .aima-content-area h2 {
+    color: #212121;
+    font-size: 28px;
+    border-bottom: 2px solid #1e6c93;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    margin-top: 40px;
+  }
+  .aima-content-area h2:first-child {
+    margin-top: 0;
+  }
+  .aima-content-area p {
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+
+  /* Vision & Mission Callout Boxes */
+  .aima-highlight-box {
+    background: #f8fafc;
+    border-left: 5px solid #1e6c93;
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .aima-highlight-box.mission {
+    border-left-color: #21865b;
+  }
+  .aima-highlight-box h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+</style>
 </head>
 <body>
 
@@ -52,13 +138,6 @@
     <h1>About ICMT</h1>
     <p>A non-profit professional platform built by academicians, for academicians to advance impactful research, inclusive knowledge creation, and educational leadership.</p>
   </div>
-  
-<div class="hero-wave">
-  <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
-    <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#f8fafc"></path>
-  </svg>
-</div>
-
 </section>
 
 <div class="breadcrumb-bar">
@@ -69,62 +148,156 @@
   </div>
 </div>
 
-<main class="container">
-  <div class="section-block">
-    <h2>🎯 Welcome to the ICMT Community</h2>
-    <p>
-      We are delighted to have you join our growing community of Commerce and Management scholars, researchers, and thought leaders who share a common purpose: to advance impactful research, foster inclusive knowledge creation, and redefine management education with integrity and excellence.
-    </p>
-    <p>
-      As a member of ICMT, you are now part of a collaborative network that spans institutions, disciplines, and borders. Whether you are an early-career academic, a seasoned researcher, or an educator shaping the next generation of professionals, ICMT supports your journey through:
-    </p>
-    <div class="grid-2" style="margin-top:16px">
-      <div class="feature-card">
-        <div class="icon">📘</div>
-        <h3>Lifelong Learning Opportunities</h3>
-        <p>Hands-on workshops, faculty development programs (FDPs), and expert webinars in analytics and modern pedagogy.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">📑</div>
-        <h3>Research Dissemination</h3>
-        <p>National conferences, UGC-CARE / Scopus indexed publication guidance, and working paper series.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🌍</div>
-        <h3>Global Academic Collaboration</h3>
-        <p>Partnerships with national and international academic bodies and leading industry practitioners.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">⚖️</div>
-        <h3>Ethical Leadership</h3>
-        <p>Curriculum innovation and ethical research mentoring initiatives that bridge academia with practical governance.</p>
-      </div>
-    </div>
-  </div>
+<main class="aima-page-container">
+  
+  <!-- Left Sidebar Navigation (AIMA Style) -->
+  <aside class="aima-sidebar">
+    <ul class="aima-sidebar-menu">
+      <li><a href="#welcome" class="active">Welcome to ICMT</a></li>
+      <li><a href="#vision-mission">Vision & Mission</a></li>
+      <li><a href="#opportunities">Learning Opportunities</a></li>
+      <li><a href="#founders">Founders & Mentors</a></li>
+      <li><a href="public-directory.html">Faculty Directory</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </aside>
 
-  <div class="section-block">
-    <h2>🌟 Vision & Mission</h2>
-    <div class="grid-2" style="margin-top:16px">
-      <div class="feature-card" style="border-left:4px solid #1e6c93">
+  <!-- Right Main Content -->
+  <article class="aima-content-area">
+    
+    <section id="welcome">
+      <h2>Welcome to the ICMT Community</h2>
+      <p>
+        We are delighted to have you join our growing community of Commerce and Management scholars, researchers, and thought leaders who share a common purpose: to advance impactful research, foster inclusive knowledge creation, and redefine management education with integrity and excellence.
+      </p>
+      <p>
+        As a member of ICMT, you are now part of a collaborative network that spans institutions, disciplines, and borders. Whether you are an early-career academic, a seasoned researcher, or an educator shaping the next generation of professionals, ICMT supports your journey.
+      </p>
+    </section>
+
+    <section id="vision-mission">
+      <h2>Vision & Mission</h2>
+      
+      <div class="aima-highlight-box">
         <h3>Our Vision</h3>
         <p>"To be a premier non-profit professional platform that connects and empowers academicians, researchers, and thought leaders in Commerce and Management fostering impactful research, inclusive knowledge creation, and lifelong learning, while inspiring educators to lead with integrity and redefine management education through global academic collaboration for the next generation of professionals."</p>
       </div>
-      <div class="feature-card" style="border-left:4px solid #21865b">
+
+      <div class="aima-highlight-box mission">
         <h3>Our Mission</h3>
         <p>To initiate, encourage, and sponsor high quality research in Commerce and Management; to organize annual international conferences, workshops, and seminars; and to cultivate an inclusive national network for continuous scholarly elevation.</p>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="banner-cta">
-    <div class="banner-cta-text">
-      <h3>Connect with ICMT Faculty</h3>
-      <p>Discover 340+ verified faculty profiles, research areas, and institutional network.</p>
+    <section id="opportunities">
+      <h2>ICMT Focus Areas</h2>
+      <div class="grid-2" style="margin-top:20px">
+        <div class="feature-card">
+          <div class="icon">📘</div>
+          <h3>Lifelong Learning Opportunities</h3>
+          <p>Hands-on workshops, faculty development programs (FDPs), and expert webinars in analytics and modern pedagogy.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📑</div>
+          <h3>Research Dissemination</h3>
+          <p>National conferences, UGC-CARE / Scopus indexed publication guidance, and working paper series.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🌍</div>
+          <h3>Global Academic Collaboration</h3>
+          <p>Partnerships with national and international academic bodies and leading industry practitioners.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⚖️</div>
+          <h3>Ethical Leadership</h3>
+          <p>Curriculum innovation and ethical research mentoring initiatives that bridge academia with practical governance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="founders">
+      <h2>🏛️ ICMT Founders & Mentors</h2>
+      <p>
+        Founded by senior academic administrators, former Vice Chancellors, and eminent researchers to build a collaborative bridge for scholarship, research mentoring, and educational innovation.
+      </p>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-v-bala-mohandas.jpg" alt="Prof. V. Bala Mohandas" class="founder-img">
+          </div>
+          <b>Prof. V. Bala Mohandas</b>
+          <span>Former Vice Chancellor, Acharya Nagarjuna University, Andhra Pradesh.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-ch-ramaprasada-rao.jpg" alt="Prof. Ch. Ramaprasada Rao" class="founder-img">
+          </div>
+          <b>Prof. Ch. Ramaprasada Rao</b>
+          <span>Retd. Professor, Sri Krishnadevaraya University, Andhra Pradesh.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-k-venugopal-rao.jpg" alt="Prof. K. Venugopal Rao" class="founder-img">
+          </div>
+          <b>Prof. K. Venugopal Rao</b>
+          <span>Former Vice Chancellor, Himalayan University.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-nvr-jyoti-kumar.jpg" alt="Prof. NVR Jyoti Kumar" class="founder-img">
+          </div>
+          <b>Prof. NVR Jyoti Kumar</b>
+          <span>Vice Chancellor, Sri Krishnadevaraya University, Andhra Pradesh.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/dr-inguava-gopinath.jpg" alt="Dr. Inguava Gopinath" class="founder-img">
+          </div>
+          <b>Dr. Inguava Gopinath</b>
+          <span>Former Senior Scientist ISRO, Sriharikota.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-v-barla.jpg" alt="Prof. V Barla" class="founder-img">
+          </div>
+          <b>Prof. V Barla</b>
+          <span>Advisor IIC, CBIT, Hyderabad.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-satyanarayana-parayitam.jpg" alt="Prof. Satyanarayana Parayitam" class="founder-img">
+          </div>
+          <b>Prof. Satyanarayana Parayitam</b>
+          <span>Charlton College of Business, University of Massachusetts Dartmouth.</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/prof-himachalam-dasaraju.jpg" alt="Prof. Himachalam Dasaraju" class="founder-img">
+          </div>
+          <b>Prof. Himachalam Dasaraju</b>
+          <span>Rtd. Professor, Sri Venkateshwara University, Tirupathi & Founder member of "Global Association for MSMEs and SDGs Research in Developing Countries".</span>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo-wrap">
+            <img src="assets/images/founders/sri-anand-musunur.jpg" alt="Sri Anand Musunur" class="founder-img">
+          </div>
+          <b>Sri Anand Musunur</b>
+          <span>Tata Consultancy Services, USA.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="banner-cta" style="margin-top: 40px;">
+      <div class="banner-cta-text">
+        <h3>Connect with ICMT Faculty</h3>
+        <p>Discover 340+ verified faculty profiles, research areas, and institutional network.</p>
+      </div>
+      <a href="public-directory.html" class="btn-cta">
+        <span>View Faculty Directory &rarr;</span>
+      </a>
     </div>
-    <a href="public-directory.html" class="btn-cta">
-      <span>View Faculty Directory &rarr;</span>
-    </a>
-  </div>
+
+  </article>
 </main>
 
 <footer class="footer">
