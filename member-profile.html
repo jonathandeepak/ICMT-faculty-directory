@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ICMT Faculty Member Profile</title>
+<title>Member Profile — ICMT Member Directory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -32,6 +32,20 @@ body{
 a{text-decoration:none;color:inherit}
 
 /* Header & Navigation */
+.site-welcome-banner{
+  background:linear-gradient(90deg,#004d66 0%,#1e6c93 100%);
+  color:#ffffff;
+  padding:8px 24px;
+  font-size:12.5px;
+  text-align:center;
+  font-weight:400;
+  letter-spacing:0.2px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.site-welcome-banner b{
+  font-weight:700;
+  color:#e0f2fe;
+}
 .header{
   background:var(--navy);
   color:#fff;
@@ -345,7 +359,6 @@ a{text-decoration:none;color:inherit}
   background:#fff;
   border-top:1px solid var(--line);
   padding:24px;
-  text-align:center;
   font-size:13px;
   color:var(--muted);
 }
@@ -399,9 +412,9 @@ a{text-decoration:none;color:inherit}
   <div class="breadcrumb-inner">
     <a href="index.html">Home</a>
     <span>&rsaquo;</span>
-    <a href="index.html">Faculty</a>
+    <a href="members.html">Member</a>
     <span>&rsaquo;</span>
-    <a href="public-directory.html">Faculty Directory</a>
+    <a href="public-directory.html">Member Directory</a>
     <span>&rsaquo;</span>
     <span style="color:#212121;font-weight:700">Member Profile</span>
   </div>
@@ -409,7 +422,7 @@ a{text-decoration:none;color:inherit}
 
 <main class="container">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
-    <a href="public-directory.html" class="btn btn-secondary">&larr; Back to Faculty Directory</a>
+    <a href="public-directory.html" class="btn btn-secondary">&larr; Back to Member Directory</a>
     <span class="subtitle" style="font-size:12px;color:var(--muted)">Official ICMT Academic Record</span>
   </div>
 
@@ -430,9 +443,10 @@ a{text-decoration:none;color:inherit}
       <a href="about-us.html" style="color:#1e6c93">About Us</a> &bull;
       <a href="initiatives.html" style="color:#1e6c93">Our Initiatives</a> &bull;
       <a href="events.html" style="color:#1e6c93">Events</a> &bull;
+      <a href="membership.html" style="color:#1e6c93">Membership</a> &bull;
       <a href="members.html" style="color:#1e6c93">Members</a> &bull;
-      <a href="faculty.html" style="color:#1e6c93">Faculty Information</a> &bull;
-      <a href="public-directory.html" style="color:#1e6c93">Faculty Directory</a> &bull;
+      <a href="faculty.html" style="color:#1e6c93">Member Information</a> &bull;
+      <a href="public-directory.html" style="color:#1e6c93">Member Directory</a> &bull;
       <a href="resources.html" style="color:#1e6c93">ICMT Resources</a> &bull;
       <a href="contact.html" style="color:#1e6c93">Contact Us</a> &bull;
       <a href="admin.html" style="color:#1e6c93">Admin Portal</a>
@@ -452,8 +466,8 @@ function esc(v){
 }
 
 function initials(name){
-  const clean = String(name || "").replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.|Lt\.\s*Dr\.)\s+/i, "").trim();
-  const parts = clean.split(/\s+/).filter(Boolean);
+  const clean = String(name || "").replace(/^(Dr.|Prof.|Mr.|Mrs.|Ms.|Lt.s*Dr.)s+/i, "").trim();
+  const parts = clean.split(/s+/).filter(Boolean);
   if(parts.length === 0) return "M";
   if(parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
@@ -487,15 +501,15 @@ function loadMemberProfile(){
   if(!member){
     container.innerHTML = `
       <div class="profile-card" style="text-align:center;padding:48px">
-        <h2>Faculty Member Record Not Found</h2>
+        <h2>Member Record Not Found</h2>
         <p style="color:var(--muted);margin:10px 0 20px">The requested member ID could not be located in the directory.</p>
-        <a href="public-directory.html" class="btn btn-primary">Browse All Faculty Members &rarr;</a>
+        <a href="public-directory.html" class="btn btn-primary">Browse All Members &rarr;</a>
       </div>
     `;
     return;
   }
 
-  document.title = (member.name || "Faculty Profile") + " — ICMT Faculty Directory";
+  document.title = (member.name || "Member Profile") + " — ICMT Member Directory";
 
   const isB64 = member.photo && member.photo.startsWith("data:");
   const b64Class = isB64 ? "avatar-b64-photo" : "";
@@ -518,7 +532,7 @@ function loadMemberProfile(){
         <div class="profile-details">
           <span class="id-badge">${esc(member.id)}</span>
           <h1>${esc(member.name)}</h1>
-          <div class="profile-sub">${esc(member.designation || "Faculty Member")} &bull; ${esc(member.qualification || "Academician")}</div>
+          <div class="profile-sub">${esc(member.designation || "Member")} &bull; ${esc(member.qualification || "Academician")}</div>
 
           <div class="profile-info-grid">
             <div class="profile-info-item">
