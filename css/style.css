@@ -762,11 +762,13 @@ textarea{min-height:82px;resize:vertical}
    ================================================== */
 @media(max-width:1000px){.cards{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr 1fr}.grid2,.profile,.form{grid-template-columns:1fr}.fullrow,.actions{grid-column:auto}}
 @media(max-width:980px){
-  .grid-2,.grid-3,.founders-grid{grid-template-columns:1fr}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .founders-grid{grid-template-columns:repeat(2,1fr)}
   .site-hero h1{font-size:28px}
   .banner-cta{flex-direction:column;text-align:center}
 }
 @media(max-width:640px){
+  .founders-grid{grid-template-columns:1fr}
   .header-inner{flex-direction:column;align-items:flex-start}
   .nav-links{width:100%;margin-top:8px}
   .site-hero h1{font-size:24px}
