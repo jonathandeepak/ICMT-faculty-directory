@@ -245,11 +245,26 @@
   margin:0;
 }
 
+/* Benefits 4-Column Grid */
+.benefits-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+  margin-top:20px;
+}
+.benefits-grid .feature-card{
+  height:100%;
+}
+
+@media(max-width:1100px){
+  .benefits-grid{grid-template-columns:repeat(2, 1fr)}
+}
 @media(max-width:980px){
   .steps-grid{grid-template-columns:1fr 1fr}
   .form-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
+  .benefits-grid{grid-template-columns:1fr}
   .steps-grid{grid-template-columns:1fr}
   .existing-member-box{flex-direction:column;text-align:center}
 }
@@ -346,36 +361,56 @@
     <h2>🌟 Your ICMT Membership Benefits</h2>
     <p>Discover the comprehensive range of academic privileges, digital resources, and networking benefits available to ICMT members:</p>
 
-    <div class="grid-3" style="margin-top:20px">
+    <div class="benefits-grid">
       <div class="feature-card">
-        <div class="icon">👥</div>
-        <h3>National Faculty Directory Profile</h3>
-        <p>A dedicated public profile cataloging your qualifications, doctoral guideship, institution, research areas, and contact links.</p>
+        <div class="icon">📚</div>
+        <h3>Academic & Knowledge Resources</h3>
+        <p>Access curated academic resources and opportunities designed to support teaching, learning and research in commerce and management.</p>
       </div>
       <div class="feature-card">
-        <div class="icon">📑</div>
-        <h3>Publication & Conference Privileges</h3>
-        <p>Priority consideration for conference paper presentations, reviewer panels, and discounts on ICMT publishing workshops.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">💼</div>
-        <h3>ICMT Careers & Placement Portal</h3>
-        <p>Direct notifications on faculty vacancies, visiting professorships, and dean/director appointments across partner colleges.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🎙️</div>
-        <h3>GPSN Public Speaking & Leadership</h3>
-        <p>Opportunities to chair academic tracks, deliver webinars, and participate in peer communication mastery masterclasses.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">📘</div>
-        <h3>Teaching & Case Study Repositories</h3>
-        <p>Access to curated Indian management case studies, empirical datasets, and syllabus templates for business schools.</p>
+        <div class="icon">🔬</div>
+        <h3>Research Engagement</h3>
+        <p>Participate in research-oriented initiatives, research discussions, collaborative opportunities and academic knowledge-sharing activities.</p>
       </div>
       <div class="feature-card">
         <div class="icon">🎓</div>
-        <h3>Doctoral Research Mentorship</h3>
-        <p>Specialized statistical workshops (PLS-SEM, R, Python in Business Analytics) for scholars and research supervisors.</p>
+        <h3>Faculty Development</h3>
+        <p>Participate in FDPs, workshops, webinars, seminars and professional development programmes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🌐</div>
+        <h3>Academic Networking</h3>
+        <p>Connect with faculty members, researchers, doctoral scholars, academic leaders and professionals from different institutions and regions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>Professional Visibility</h3>
+        <p>Create and maintain your professional profile within the ICMT member community.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏆</div>
+        <h3>Recognition & Awards</h3>
+        <p>Become eligible for selected ICMT recognition programmes, awards, fellowships and member spotlights, subject to applicable criteria.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📑</div>
+        <h3>Publications & Knowledge Sharing</h3>
+        <p>Explore opportunities to contribute research, articles, teaching resources, academic insights, newsletters and other knowledge initiatives.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎙️</div>
+        <h3>Conference & Event Opportunities</h3>
+        <p>Participate in ICMT conferences, seminars, webinars, workshops and other academic programmes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏛️</div>
+        <h3>Academic Communities</h3>
+        <p>Engage with communities based on research interests, disciplines, teaching areas and professional interests.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🪪</div>
+        <h3>Professional Identity</h3>
+        <p>Every eligible ICMT member can have a digital academic profile within the ICMT member directory.</p>
       </div>
     </div>
   </div>
