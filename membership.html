@@ -220,6 +220,35 @@
   color:#64748b;
 }
 
+/* Photo Upload Box */
+.photo-upload-container{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.photo-preview-box{
+  width:58px;
+  height:58px;
+  border-radius:8px;
+  border:2px dashed #cbd5df;
+  background:#f8fafc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.photo-preview-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none;
+}
+.photo-preview-placeholder{
+  font-size:24px;
+  color:#94a3b8;
+}
+
 /* Existing Member Option Box */
 .existing-member-box{
   background:linear-gradient(135deg, #eaf5fb 0%, #f0f7fb 100%);
@@ -618,6 +647,50 @@
         </div>
 
         <div class="form-group">
+          <label>Date of Birth *</label>
+          <input id="mDob" type="date" required>
+        </div>
+
+        <div class="form-group">
+          <label>Personal Email *</label>
+          <input id="mPersonalEmail" type="email" required placeholder="e.g. ramesh.personal@gmail.com">
+        </div>
+
+        <div class="form-group">
+          <label>Professional Email *</label>
+          <input id="mEmail" type="email" required placeholder="e.g. ramesh@university.ac.in">
+        </div>
+
+        <div class="form-group">
+          <label>Mobile *</label>
+          <input id="mMobile" type="tel" required placeholder="e.g. +91 9876543210">
+        </div>
+
+        <div class="form-group">
+          <label>WhatsApp *</label>
+          <input id="mWhatsapp" type="tel" required placeholder="e.g. +91 9876543210">
+        </div>
+
+        <div class="form-group">
+          <label>WhatsApp Number 2 (Optional)</label>
+          <input id="mWhatsapp2" type="tel" placeholder="e.g. +91 9123456780">
+        </div>
+
+        <div class="form-group">
+          <label>Upload Passport Size Photograph *</label>
+          <div class="photo-upload-container">
+            <div class="photo-preview-box" id="photoPreviewBox">
+              <span class="photo-preview-placeholder" id="photoPlaceholder">📷</span>
+              <img id="photoPreviewImg" alt="Photo Preview">
+            </div>
+            <div style="flex-grow:1">
+              <input id="mPhoto" type="file" accept="image/*" required onchange="handlePhotoPreview(event)">
+              <span class="form-help">Accepted formats: JPG, PNG, WEBP.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label>Highest Qualification *</label>
           <input id="mQual" required placeholder="e.g. Ph.D. in Commerce, M.Com, NET/SET">
         </div>
@@ -637,19 +710,39 @@
           <input id="mCollege" required placeholder="e.g. Sri Krishnadevaraya University">
         </div>
 
+        <div class="form-group full-col">
+          <label>College Address *</label>
+          <textarea id="mCollegeAddress" required placeholder="Enter full campus / institutional address..." style="min-height:70px"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Pincode *</label>
+          <input id="mPincode" required placeholder="e.g. 515003">
+        </div>
+
         <div class="form-group">
           <label>State / Region *</label>
           <input id="mState" required placeholder="e.g. Andhra Pradesh, Telangana, Karnataka">
         </div>
 
-        <div class="form-group">
-          <label>Professional Email *</label>
-          <input id="mEmail" type="email" required placeholder="e.g. ramesh@university.ac.in">
+        <div class="form-group full-col">
+          <label>Country *</label>
+          <input id="mCountry" required value="India" placeholder="e.g. India">
         </div>
 
         <div class="form-group">
-          <label>Mobile / WhatsApp Number *</label>
-          <input id="mMobile" type="tel" required placeholder="e.g. +91 9876543210">
+          <label>Google Scholar Profile (Optional)</label>
+          <input id="mScholar" placeholder="e.g. https://scholar.google.com/citations?user=...">
+        </div>
+
+        <div class="form-group">
+          <label>LinkedIn Profile (Optional)</label>
+          <input id="mLinkedin" placeholder="e.g. https://linkedin.com/in/username">
+        </div>
+
+        <div class="form-group full-col">
+          <label>ORCID (Optional)</label>
+          <input id="mOrcid" placeholder="e.g. 0000-0002-1825-0097 or https://orcid.org/...">
         </div>
 
         <div class="form-group full-col">
@@ -751,6 +844,39 @@ function selectPlan(planName){
   }
 }
 
+function handlePhotoPreview(e){
+  const file = e.target.files && e.target.files[0];
+  const img = document.getElementById('photoPreviewImg');
+  const placeholder = document.getElementById('photoPlaceholder');
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(evt){
+      if(img){
+        img.src = evt.target.result;
+        img.style.display = 'block';
+      }
+      if(placeholder){
+        placeholder.style.display = 'none';
+      }
+    };
+    reader.readAsDataURL(file);
+  } else {
+    resetPhotoPreview();
+  }
+}
+
+function resetPhotoPreview(){
+  const img = document.getElementById('photoPreviewImg');
+  const placeholder = document.getElementById('photoPlaceholder');
+  if(img){
+    img.src = '';
+    img.style.display = 'none';
+  }
+  if(placeholder){
+    placeholder.style.display = 'block';
+  }
+}
+
 function handleMembershipSubmit(e){
   e.preventDefault();
   const alertBox = document.getElementById('appSuccessAlert');
@@ -758,8 +884,18 @@ function handleMembershipSubmit(e){
     alertBox.style.display = 'block';
     alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     document.getElementById('membershipForm').reset();
+    resetPhotoPreview();
   }
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+  const form = document.getElementById('membershipForm');
+  if(form){
+    form.addEventListener('reset', function(){
+      setTimeout(resetPhotoPreview, 50);
+    });
+  }
+});
 </script>
 
 </body>
