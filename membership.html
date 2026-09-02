@@ -105,6 +105,7 @@
   font-weight:400;
   color:#64748b;
 }
+.hidden-on-page{display:none !important}
 .cat-features{
   list-style:none;
   padding:0;
@@ -184,6 +185,14 @@
   border-radius:12px;
   padding:34px;
   box-shadow:var(--shadow-md);
+}
+
+/* Membership heading style */
+.membership-choose{
+  font-size:1.35rem;
+  font-weight:800;
+  color:#0f172a;
+  margin-bottom:8px;
 }
 .form-grid{
   display:grid;
@@ -459,13 +468,12 @@
 
   <!-- 3. Membership Categories -->
   <div class="section-block">
-    <h2> Membership Categories & Eligibility</h2>
+    <h2>📑 Membership Categories & Eligibility</h2>
     <p>Choose the category that best aligns with your academic standing, institutional role, or research pursuits:</p>
 
     <!-- Category Toggle Buttons -->
     <div class="membership-tabs">
-      <button class="m-tab-btn active" onclick="switchCategory('individual')">Individual / Faculty Membership</button>
-      <button class="m-tab-btn" onclick="switchCategory('institutional')">Institutional Membership</button>
+      <button class="m-tab-btn active">Individual / Faculty Membership</button>
     </div>
 
     <!-- Individual Membership Grid -->
@@ -474,125 +482,63 @@
       <!-- Category 1: Life Member -->
       <div class="category-card featured">
         <span class="badge-popular">Most Popular</span>
-        <div class="cat-title">Life Member (Faculty)</div>
+        <div class="cat-title">Lifetime Member (Faculty)</div>
         <div class="cat-eligibility">For Professors, Associate & Assistant Professors in Commerce & Management with 3+ years teaching experience.</div>
-        <div class="cat-fee">₹ 5,000 <small>/ Lifetime</small></div>
+        <div class="cat-fee hidden-on-page">₹ 3,500 <small>/ Lifetime</small></div>
         <ul class="cat-features">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Permanent verified listing in the National Faculty Directory
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Voting rights & eligibility for ICMT Executive Council
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Concession on all national conclaves & FDP masterclasses
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Official Life Membership Certificate & Digital Badge
-          </li>
+          <li>Ideal for: Professors • Associate Professors • Assistant Professors • Lecturers • Academic Professionals</li>
         </ul>
-        <a href="#apply-section" onclick="selectPlan('Life Member (Faculty)')" class="btn primary full">Apply for Life Membership</a>
+        <a href="#apply-section" onclick="selectPlan('Individual Academic Membership')" class="btn primary full">Apply</a>
       </div>
 
-      <!-- Category 2: Annual Member -->
-      <div class="category-card">
-        <div class="cat-title">Annual Member (Faculty)</div>
-        <div class="cat-eligibility">For educators, contractual faculty, and visiting lecturers seeking annual association.</div>
-        <div class="cat-fee">₹ 1,000 <small>/ Per Annum</small></div>
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Research Scholar Membership</div>
+        <div class="cat-eligibility">For doctoral scholars and researchers pursuing research in commerce, management, business and allied areas.</div>
         <ul class="cat-features">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Active Directory listing during membership validity
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Access to Policy Pulse regulatory updates
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Member rates for webinars & training sessions
-          </li>
+          <li>Ideal for: Ph.D. Scholars • Research Scholars • Early-Career Researchers</li>
         </ul>
-        <a href="#apply-section" onclick="selectPlan('Annual Member (Faculty)')" class="btn secondary full">Apply for Annual Membership</a>
+        <a href="#apply-section" onclick="selectPlan('Research Scholar Membership')" class="btn secondary full">Apply</a>
       </div>
 
-      <!-- Category 3: Research Scholar / Student -->
-      <div class="category-card">
-        <div class="cat-title">Research Scholar Member</div>
-        <div class="cat-eligibility">For registered Ph.D., M.Phil., and postgraduate research scholars in Commerce/Management.</div>
-        <div class="cat-fee">₹ 600 <small>/ Per Annum</small></div>
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Student Membership</div>
+        <div class="cat-eligibility">For students interested in developing their knowledge and professional engagement in commerce and management.</div>
         <ul class="cat-features">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Subsidized access to Doctoral Research Conclaves
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Thesis methodology clinics & data toolkits
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            ICMT Careers entry-level academic notifications
-          </li>
+          <li>Ideal for: UG • PG • Professional Programme Students</li>
         </ul>
-        <a href="#apply-section" onclick="selectPlan('Research Scholar Member')" class="btn secondary full">Apply as Scholar</a>
+        <a href="#apply-section" onclick="selectPlan('Student Membership')" class="btn secondary full">Apply</a>
+      </div>
+
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Professional / Practitioner Membership</div>
+        <div class="cat-eligibility">For industry professionals, consultants, entrepreneurs and practitioners interested in connecting with academia.</div>
+        <ul class="cat-features">
+          <li>Ideal for: Industry Professionals • Consultants • Entrepreneurs • Practitioners</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Professional/Practitioner Membership')" class="btn secondary full">Apply</a>
+      </div>
+
+      <div class="category-card featured" data-price="TBD">
+        <div class="cat-title">Institutional Membership</div>
+        <div class="cat-eligibility">For colleges, universities, business schools, departments, research centres and academic institutions.</div>
+        <ul class="cat-features">
+          <li>Ideal for: Universities • Colleges • B-Schools • Departments • Research Institutions</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Institutional Membership')" class="btn primary full">Apply</a>
+      </div>
+
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Distinguished / Emeritus Member</div>
+        <div class="cat-eligibility">For senior and retired academicians who have made significant contributions to commerce, management education, research or academic leadership.</div>
+        <ul class="cat-features">
+          <li>Ideal for: Retired Professors • Senior Academicians • Distinguished Academic Contributors</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Distinguished / Emeritus Member')" class="btn secondary full">Apply</a>
       </div>
 
     </div>
-
-    <!-- Institutional Membership Grid (Initially Hidden) -->
-    <div id="cat-institutional" class="category-grid" style="display:none">
-      
-      <!-- Institutional Category 1 -->
-      <div class="category-card featured">
-        <span class="badge-popular">Higher Education</span>
-        <div class="cat-title">University / Business School</div>
-        <div class="cat-eligibility">For Central, State, Private Universities, Deemed Universities, and autonomous B-Schools.</div>
-        <div class="cat-fee">₹ 25,000 <small>/ 5-Year Term</small></div>
-        <ul class="cat-features">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Nomination of up to 5 faculty members as Life Members
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Institutional logo branding on national conclaves & proceedings
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Co-hosting rights for regional FDPs and workshops
-          </li>
-        </ul>
-        <a href="#apply-section" onclick="selectPlan('Institutional (University / B-School)')" class="btn primary full">Apply for University Membership</a>
-      </div>
-
-      <!-- Institutional Category 2 -->
-      <div class="category-card">
-        <div class="cat-title">College / Degree Institute</div>
-        <div class="cat-eligibility">For affiliated degree colleges, polytechnics, and department-level affiliations.</div>
-        <div class="cat-fee">₹ 12,000 <small>/ 3-Year Term</small></div>
-        <ul class="cat-features">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Nomination of 2 faculty members as Life Members
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Curriculum advisory & NAAC documentation guidance
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            Bulk registration discounts on student events
-          </li>
-        </ul>
-        <a href="#apply-section" onclick="selectPlan('Institutional (College / Institute)')" class="btn secondary full">Apply for College Membership</a>
-      </div>
-
-    </div>
+    
+    <!-- Institutional membership grid removed per request -->
   </div>
 
   <!-- 4. How to Join -->
@@ -635,7 +581,7 @@
         <div class="form-group">
           <label>Membership Category *</label>
           <select id="mCategory" required>
-            <option value="Life Member (Faculty)">Life Member (Faculty) — ₹ 5,000</option>
+            <option value="Life Member (Faculty)">Life Member (Faculty) — ₹ 3,500</option>
             <option value="Annual Member (Faculty)">Annual Member (Faculty) — ₹ 1,000</option>
             <option value="Research Scholar Member">Research Scholar Member — ₹ 600</option>
             <option value="Institutional (University / B-School)">Institutional (University / B-School) — ₹ 25,000</option>
@@ -828,20 +774,28 @@
 <script>
 function switchCategory(type){
   const indBtn = document.querySelectorAll('.m-tab-btn')[0];
-  const instBtn = document.querySelectorAll('.m-tab-btn')[1];
   const indGrid = document.getElementById('cat-individual');
+  const instBtn = document.getElementById('tab-institutional');
   const instGrid = document.getElementById('cat-institutional');
 
   if(type === 'individual'){
     indBtn.classList.add('active');
-    instBtn.classList.remove('active');
-    indGrid.style.display = 'grid';
-    instGrid.style.display = 'none';
+    if(instBtn) instBtn.classList.remove('active');
+    indBtn.setAttribute('aria-selected','true');
+    indBtn.setAttribute('tabindex','0');
+    if(instBtn) instBtn.setAttribute('aria-selected','false');
+    if(instBtn) instBtn.setAttribute('tabindex','-1');
+    if(indGrid) indGrid.style.display = 'grid';
+    if(instGrid) instGrid.style.display = 'none';
   } else {
-    instBtn.classList.add('active');
-    indBtn.classList.remove('active');
-    instGrid.style.display = 'grid';
-    indGrid.style.display = 'none';
+    if(instBtn) instBtn.classList.add('active');
+    if(indBtn) indBtn.classList.remove('active');
+    if(instBtn) instBtn.setAttribute('aria-selected','true');
+    if(instBtn) instBtn.setAttribute('tabindex','0');
+    if(indBtn) indBtn.setAttribute('aria-selected','false');
+    if(indBtn) indBtn.setAttribute('tabindex','-1');
+    if(instGrid) instGrid.style.display = 'grid';
+    if(indGrid) indGrid.style.display = 'none';
   }
 }
 
@@ -907,6 +861,16 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('reset', function(){
       setTimeout(resetPhotoPreview, 50);
     });
+  }
+  // Initialize membership tabs (only individual tab present)
+  const tabInd = document.getElementById('tab-individual');
+  const indGrid = document.getElementById('cat-individual');
+  if(indGrid){
+    indGrid.style.display = 'grid';
+  }
+  if(tabInd){
+    tabInd.setAttribute('aria-selected','true');
+    tabInd.setAttribute('tabindex','0');
   }
 });
 </script>
