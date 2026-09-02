@@ -105,6 +105,7 @@
   font-weight:400;
   color:#64748b;
 }
+.hidden-on-page{display:none !important}
 .cat-features{
   list-style:none;
   padding:0;
@@ -471,9 +472,9 @@
     <p>Choose the category that best aligns with your academic standing, institutional role, or research pursuits:</p>
 
     <!-- Category Toggle Buttons -->
-    <div class="membership-tabs">
-      <button class="m-tab-btn active" onclick="switchCategory('individual')">Individual / Faculty Membership</button>
-      <button class="m-tab-btn" onclick="switchCategory('institutional')">Institutional Membership</button>
+    <div class="membership-tabs" role="tablist" aria-label="Membership categories">
+      <button id="tab-individual" class="m-tab-btn active" role="tab" aria-controls="cat-individual" aria-selected="true" tabindex="0" onclick="switchCategory('individual')">Individual / Faculty Membership</button>
+      <button id="tab-institutional" class="m-tab-btn" role="tab" aria-controls="cat-institutional" aria-selected="false" tabindex="-1" onclick="switchCategory('institutional')">Institutional Membership</button>
     </div>
 
     <!-- Individual Membership Grid -->
@@ -482,9 +483,9 @@
       <!-- Category 1: Life Member -->
       <div class="category-card featured">
         <span class="badge-popular">Most Popular</span>
-        <div class="cat-title">Life Member (Faculty)</div>
+        <div class="cat-title">Lifetime Member (Faculty)</div>
         <div class="cat-eligibility">For Professors, Associate & Assistant Professors in Commerce & Management with 3+ years teaching experience.</div>
-        <div class="cat-fee">₹ 3,500 <small>/ Lifetime</small></div>
+        <div class="cat-fee hidden-on-page">₹ 3,500 <small>/ Lifetime</small></div>
         <ul class="cat-features">
           <li>Ideal for: Professors • Associate Professors • Assistant Professors • Lecturers • Academic Professionals</li>
         </ul>
@@ -536,6 +537,36 @@
         <a href="#apply-section" onclick="selectPlan('Distinguished / Emeritus Member')" class="btn secondary full">Apply</a>
       </div>
 
+    </div>
+    
+    <!-- Institutional Membership Grid (hidden by default) -->
+    <div id="cat-institutional" class="category-grid" style="display:none">
+      <div class="category-card featured">
+        <div class="cat-title">Institutional (University / B-School)</div>
+        <div class="cat-eligibility">For universities and business schools seeking institutional partnership and multiple member seats.</div>
+        <ul class="cat-features">
+          <li>Includes: Multiple member profiles, institutional listing, priority event slots</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Institutional (University / B-School)')" class="btn primary full">Apply</a>
+      </div>
+
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Institutional (College / Institute)</div>
+        <div class="cat-eligibility">For colleges and institutes interested in institutional membership with limited seats.</div>
+        <ul class="cat-features">
+          <li>Includes: Institutional directory entry, limited member seats</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Institutional (College / Institute)')" class="btn secondary full">Apply</a>
+      </div>
+
+      <div class="category-card" data-price="TBD">
+        <div class="cat-title">Department Membership</div>
+        <div class="cat-eligibility">For academic departments that want a consolidated institutional profile and departmental access.</div>
+        <ul class="cat-features">
+          <li>Includes: Department profile, shared contacts and resource access</li>
+        </ul>
+        <a href="#apply-section" onclick="selectPlan('Department Membership')" class="btn secondary full">Apply</a>
+      </div>
     </div>
   </div>
 
@@ -779,11 +810,19 @@ function switchCategory(type){
   if(type === 'individual'){
     indBtn.classList.add('active');
     instBtn.classList.remove('active');
+    indBtn.setAttribute('aria-selected','true');
+    indBtn.setAttribute('tabindex','0');
+    instBtn.setAttribute('aria-selected','false');
+    instBtn.setAttribute('tabindex','-1');
     indGrid.style.display = 'grid';
     instGrid.style.display = 'none';
   } else {
     instBtn.classList.add('active');
     indBtn.classList.remove('active');
+    instBtn.setAttribute('aria-selected','true');
+    instBtn.setAttribute('tabindex','0');
+    indBtn.setAttribute('aria-selected','false');
+    indBtn.setAttribute('tabindex','-1');
     instGrid.style.display = 'grid';
     indGrid.style.display = 'none';
   }
@@ -850,6 +889,35 @@ document.addEventListener('DOMContentLoaded', function(){
   if(form){
     form.addEventListener('reset', function(){
       setTimeout(resetPhotoPreview, 50);
+    });
+  }
+  // Initialize membership tabs
+  const tabInd = document.getElementById('tab-individual');
+  const tabInst = document.getElementById('tab-institutional');
+  const indGrid = document.getElementById('cat-individual');
+  const instGrid = document.getElementById('cat-institutional');
+  if(tabInd && tabInst && indGrid && instGrid){
+    // ensure initial visibility
+    indGrid.style.display = 'grid';
+    instGrid.style.display = 'none';
+    tabInd.setAttribute('aria-selected','true');
+    tabInd.setAttribute('tabindex','0');
+    tabInst.setAttribute('aria-selected','false');
+    tabInst.setAttribute('tabindex','-1');
+
+    // Keyboard navigation for tabs
+    const tabs = [tabInd, tabInst];
+    tabs.forEach((t,i)=>{
+      t.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+          e.preventDefault();
+          const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[next].focus();
+        } else if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          tabs[i].click();
+        }
+      });
     });
   }
 });
