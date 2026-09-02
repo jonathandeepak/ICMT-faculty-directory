@@ -10,6 +10,191 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- <link rel="icon" href="assets/images/icmt-logo.png" type="image/png"> -->
 
+<style>
+.event-featured-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(30,108,147,0.08);
+  padding: 30px;
+  margin-top: 18px;
+}
+.event-featured-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.event-poster-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  background: #f8fafc;
+}
+.event-poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.event-poster-wrap:hover .event-poster-img {
+  transform: scale(1.02);
+}
+.event-badge {
+  display: inline-block;
+  background: #eaf5fb;
+  color: #1e6c93;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  border: 1px solid #b9d2e3;
+}
+.event-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e6c93;
+  line-height: 1.38;
+  margin: 0 0 16px 0;
+}
+.event-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  background: #f8fafc;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid #edf2f7;
+  margin-bottom: 18px;
+}
+.event-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.meta-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.meta-val {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.45;
+}
+.event-desc-block p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #475569;
+  margin-bottom: 12px;
+}
+.event-sub-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 22px 0;
+}
+.event-info-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.event-info-panel h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1e6c93;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf2f7;
+}
+.event-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.event-info-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 13px;
+  color: #475569;
+  border-bottom: 1px dashed #f1f5f9;
+}
+.event-info-list li:last-child {
+  border-bottom: none;
+}
+.event-info-list li b {
+  color: #0f172a;
+  font-weight: 700;
+  margin-left: 10px;
+  text-align: right;
+}
+.event-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #edf2f7;
+}
+.btn-lg {
+  padding: 12px 26px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+@media(max-width: 980px) {
+  .event-featured-grid {
+    grid-template-columns: 1fr;
+  }
+  .event-poster-wrap {
+    max-width: 360px;
+    margin: 0 auto 10px;
+  }
+}
+@media(max-width: 640px) {
+  .event-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .event-sub-tables {
+    grid-template-columns: 1fr;
+  }
+  .event-featured-card {
+    padding: 18px;
+  }
+  .event-title {
+    font-size: 18px;
+  }
+  .event-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .event-actions a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -69,32 +254,101 @@
 </div>
 
 <main class="container">
+  
+  <!-- 1. Featured / Upcoming Events -->
   <div class="section-block">
-    <h2> Upcoming Events (2026)</h2>
-    <div class="grid-2" style="margin-top:16px">
-      <div class="feature-card" style="border-left:4px solid #1e6c93">
-        <span style="font-size:11px;font-weight:700;color:#1e6c93;text-transform:uppercase">Annual National Summit</span>
-        <h3 style="margin-top:4px">National Conference on Future of Commerce & Management Education</h3>
-        <p style="margin-top:8px">Themes: AI in Banking, Corporate Sustainability, Behavioral Economics, and Digital Supply Chains.</p>
-        <div style="margin-top:12px;font-size:12px;color:#64748b"><b>Format:</b> Hybrid &bull; <b>Call for Papers:</b> Open</div>
-      </div>
+    <h2>Upcoming Events (2026)</h2>
 
-      <div class="feature-card" style="border-left:4px solid #21865b">
-        <span style="font-size:11px;font-weight:700;color:#21865b;text-transform:uppercase">Research Masterclass</span>
-        <h3 style="margin-top:4px">Doctoral Research Conclave on Structural Equation Modeling</h3>
-        <p style="margin-top:8px">Hands-on statistical workshop for Ph.D. scholars on PLS-SEM, mediation-moderation analysis, and model validation.</p>
-        <div style="margin-top:12px;font-size:12px;color:#64748b"><b>Duration:</b> 3-Day Intensive Series</div>
+    <div class="event-featured-card">
+      <div class="event-featured-grid">
+        
+        <!-- Left: Official Seminar Brochure Cover / Poster -->
+        <div class="event-poster-wrap">
+          <img src="assets/images/events/siddhartha-seminar-poster.jpg" alt="Two-Day National Seminar Brochure — Siddhartha Academy of Higher Education" class="event-poster-img">
+        </div>
+
+        <!-- Right: Event Details -->
+        <div class="event-details-wrap">
+          <span class="event-badge">Two-Day National Seminar</span>
+          <h3 class="event-title">“Ethical Leadership and Management through the Lens of Bhagavad Gita for Sustainable Development towards Viksit Bharat @ 2047”</h3>
+
+          <div class="event-meta-grid">
+            <div class="event-meta-item">
+              <span class="meta-label">Date</span>
+              <span class="meta-val">3rd &amp; 4th November 2026</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="meta-label">Mode</span>
+              <span class="meta-val">Offline</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="meta-label">Venue</span>
+              <span class="meta-val">Siddhartha Academy of Higher Education (Deemed to be University), Vijayawada, Andhra Pradesh</span>
+            </div>
+            <div class="event-meta-item">
+              <span class="meta-label">Organized by</span>
+              <span class="meta-val">School of Management, Siddhartha Academy of Higher Education</span>
+            </div>
+            <div class="event-meta-item" style="grid-column: 1 / -1;">
+              <span class="meta-label">In association with</span>
+              <span class="meta-val">AIMS &amp; Chinmaya Mission</span>
+            </div>
+          </div>
+
+          <div class="event-desc-block">
+            <p>
+              The seminar aims to provide a platform for academicians, researchers, industry professionals and students to share their research, experiences and insights on the relevance of the Bhagavad Gita to contemporary management and ethical leadership.
+            </p>
+            <p>
+              The seminar focuses on ethical leadership, management, strategic leadership, corporate sustainability, governance, youth leadership, ecology, economy and ethics, and sustainable development towards Viksit Bharat @ 2047.
+            </p>
+          </div>
+
+          <!-- Important Dates & Registration Fees Sub-grids -->
+          <div class="event-sub-tables">
+            <div class="event-info-panel">
+              <h4>Important Dates</h4>
+              <ul class="event-info-list">
+                <li><span>Abstract Submission Deadline:</span> <b>28 September 2026</b></li>
+                <li><span>Communication of Acceptance:</span> <b>30 September 2026</b></li>
+                <li><span>Full Paper Submission Deadline:</span> <b>20 October 2026</b></li>
+                <li><span>Registration Closing Date:</span> <b>27 October 2026</b></li>
+              </ul>
+            </div>
+
+            <div class="event-info-panel">
+              <h4>Registration Fees</h4>
+              <ul class="event-info-list">
+                <li><span>Industry Professionals:</span> <b>₹1,500</b></li>
+                <li><span>Academicians:</span> <b>₹1,000</b></li>
+                <li><span>Researchers:</span> <b>₹750</b></li>
+                <li><span>Students:</span> <b>₹500</b></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="event-actions">
+            <a href="https://forms.gle/GYHurRpFLav73Hip8" target="_blank" rel="noopener noreferrer" class="btn primary btn-lg">
+              Register Now &rarr;
+            </a>
+            <a href="assets/documents/National_Seminar_Siddhartha_Academy_2026.pdf" target="_blank" class="btn secondary btn-lg">
+              Download Brochure
+            </a>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </div>
 
+  <!-- 2. Past Events (Archived Conclaves) -->
   <div class="section-block">
-    <h2> Past Conclaves & Archives</h2>
-    <ul style="padding-left:20px;color:#4a5568;font-size:14px;line-height:1.8">
-      <li>National Webinar on "Publishing in Top-Tier Management Journals" — Keynote by Prof. Satyanarayana Parayitam (UMass Dartmouth).</li>
-      <li>National Conclave on "Research Methodology in Social Sciences & Commerce" — Hosted with Sri Krishnadevaraya University.</li>
-      <li>Faculty Enrichment Program on "Case Study Methodologies for Business Schools".</li>
-    </ul>
+    <h2>Past Conclaves & Archives</h2>
+    <p style="color:#64748b;font-size:13.5px;margin:0;font-style:italic">
+      There are no archived past events at this time. Verified conclave proceedings and event archives will appear here following event completion.
+    </p>
   </div>
 
   <div class="banner-cta">
